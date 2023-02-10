@@ -1,0 +1,33 @@
+/* INSERT NAME AND PENNKEY HERE */
+
+`timescale 1ns / 1ps
+`default_nettype none
+
+module lc4_alu(input  wire [15:0] i_insn,
+               input wire [15:0]  i_pc,
+               input wire [15:0]  i_r1data,
+               input wire [15:0]  i_r2data,
+               output wire [15:0] o_result);
+
+// Define the opcode, addressing mode, and immediate flag
+  wire [5:0] opcode = i_insn[15:10];
+  wire [2:0] amode = i_insn[9:7];
+  wire imflag = i_insn[5];
+
+  // Define the immediate value and the effective memory address
+  wire [15:0] imm = {i_insn[5:0], 6'b0};
+  wire [15:0] mem_addr = i_r1data + (imflag == 1 ? imm : i_r2data);
+
+  always_comb begin
+    case (opcode)
+      // LDR instruction
+      6'b011011: o_result = mem_addr;
+
+      // STR instruction
+      6'b101011: o_result = mem_addr;
+
+      // Other instructions
+      default: o_result = i_r1data;
+    endcase
+
+endmodule
