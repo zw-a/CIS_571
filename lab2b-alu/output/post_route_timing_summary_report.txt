@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Feb 12 16:19:20 2023
+| Date         : Sun Feb 12 17:49:44 2023
 | Host         : big06.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command      : report_timing_summary -file ./output/post_route_timing_summary_report.txt
 | Design       : lc4_system_alu
@@ -136,7 +136,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      3.861        0.000                      0                  442        0.162        0.000                      0                  442        4.500        0.000                       0                   196  
+      4.532        0.000                      0                  437        0.135        0.000                      0                  437        4.500        0.000                       0                   196  
 
 
 All user specified timing constraints are met.
@@ -159,7 +159,7 @@ oled_ctrl_clk  {0.000 5.000}      10.000          100.000
 
 Clock              WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----              -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-oled_ctrl_clk        3.861        0.000                      0                  442        0.162        0.000                      0                  442        4.500        0.000                       0                   196  
+oled_ctrl_clk        4.532        0.000                      0                  437        0.135        0.000                      0                  437        4.500        0.000                       0                   196  
 
 
 ------------------------------------------------------------------------------------------------
@@ -190,28 +190,28 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  oled_ctrl_clk
   To Clock:  oled_ctrl_clk
 
-Setup :            0  Failing Endpoints,  Worst Slack        3.861ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.162ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        4.532ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.135ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             3.861ns  (required time - arrival time)
-  Source:                 m_OLEDCtrl/MS_DELAY/stop_time_reg[4]/C
+Slack (MET) :             4.532ns  (required time - arrival time)
+  Source:                 m_OLEDCtrl/state_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]/R
+  Destination:            FSM_onehot_state_reg[0]/CE
                             (rising edge-triggered cell FDRE clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             oled_ctrl_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (oled_ctrl_clk rise@10.000ns - oled_ctrl_clk rise@0.000ns)
-  Data Path Delay:        5.447ns  (logic 1.546ns (28.381%)  route 3.901ns (71.619%))
-  Logic Levels:           4  (CARRY4=1 LUT3=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.031ns = ( 15.031 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.485ns
-    Clock Pessimism Removal (CPR):    0.430ns
+  Data Path Delay:        5.260ns  (logic 1.182ns (22.471%)  route 4.078ns (77.529%))
+  Logic Levels:           4  (LUT3=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.003ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.089ns = ( 15.089 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.486ns
+    Clock Pessimism Removal (CPR):    0.394ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -227,21 +227,20 @@ Slack (MET) :             3.861ns  (required time - arrival time)
     Y9                   IBUF (Prop_ibuf_I_O)         1.490     1.490 r  oled_ctrl_clk_IBUF_inst/O
                          net (fo=1, routed)           2.171     3.661    oled_ctrl_clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.762 r  oled_ctrl_clk_IBUF_BUFG_inst/O
-                         net (fo=195, routed)         1.723     5.485    m_OLEDCtrl/MS_DELAY/oled_ctrl_clk_IBUF_BUFG
-    SLICE_X85Y58         FDRE                                         r  m_OLEDCtrl/MS_DELAY/stop_time_reg[4]/C
+                         net (fo=195, routed)         1.724     5.486    m_OLEDCtrl/oled_ctrl_clk_IBUF_BUFG
+    SLICE_X84Y55         FDRE                                         r  m_OLEDCtrl/state_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X85Y58         FDRE (Prop_fdre_C_Q)         0.419     5.904 r  m_OLEDCtrl/MS_DELAY/stop_time_reg[4]/Q
-                         net (fo=1, routed)           0.969     6.874    m_OLEDCtrl/MS_DELAY/stop_time[4]
-    SLICE_X85Y57         LUT6 (Prop_lut6_I3_O)        0.299     7.173 r  m_OLEDCtrl/MS_DELAY/state1_carry_i_3/O
-                         net (fo=1, routed)           0.000     7.173    m_OLEDCtrl/MS_DELAY/state1_carry_i_3_n_0
-    SLICE_X85Y57         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.723 r  m_OLEDCtrl/MS_DELAY/state1_carry/CO[3]
-                         net (fo=2, routed)           1.036     8.758    m_OLEDCtrl/MS_DELAY/state10_in
-    SLICE_X85Y60         LUT3 (Prop_lut3_I1_O)        0.124     8.882 r  m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_4/O
-                         net (fo=1, routed)           0.949     9.832    m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_4_n_0
-    SLICE_X85Y62         LUT5 (Prop_lut5_I3_O)        0.154     9.986 r  m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_1/O
-                         net (fo=12, routed)          0.947    10.933    m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_1_n_0
-    SLICE_X84Y55         FDRE                                         r  m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]/R
+    SLICE_X84Y55         FDRE (Prop_fdre_C_Q)         0.456     5.942 f  m_OLEDCtrl/state_reg[1]/Q
+                         net (fo=66, routed)          1.528     7.470    m_OLEDCtrl/oled_dc
+    SLICE_X89Y56         LUT3 (Prop_lut3_I1_O)        0.152     7.622 f  m_OLEDCtrl/temp_delay_ms[7]_i_4/O
+                         net (fo=2, routed)           0.594     8.216    m_OLEDCtrl/temp_delay_ms[7]_i_4_n_0
+    SLICE_X89Y55         LUT6 (Prop_lut6_I1_O)        0.326     8.542 f  m_OLEDCtrl/disp_on_start_i_2/O
+                         net (fo=3, routed)           0.679     9.221    m_OLEDCtrl/disp_on_start_reg
+    SLICE_X90Y57         LUT3 (Prop_lut3_I1_O)        0.124     9.345 r  m_OLEDCtrl/FSM_onehot_state[6]_i_4/O
+                         net (fo=1, routed)           0.670    10.015    m_OLEDCtrl/disp_on_start
+    SLICE_X90Y57         LUT5 (Prop_lut5_I2_O)        0.124    10.139 r  m_OLEDCtrl/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.608    10.747    m_OLEDCtrl_n_19
+    SLICE_X90Y57         FDRE                                         r  FSM_onehot_state_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock oled_ctrl_clk rise edge)
@@ -251,16 +250,16 @@ Slack (MET) :             3.861ns  (required time - arrival time)
     Y9                   IBUF (Prop_ibuf_I_O)         1.420    11.420 r  oled_ctrl_clk_IBUF_inst/O
                          net (fo=1, routed)           1.972    13.392    oled_ctrl_clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.483 r  oled_ctrl_clk_IBUF_BUFG_inst/O
-                         net (fo=195, routed)         1.549    15.031    m_OLEDCtrl/MS_DELAY/oled_ctrl_clk_IBUF_BUFG
-    SLICE_X84Y55         FDRE                                         r  m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]/C
-                         clock pessimism              0.430    15.461    
-                         clock uncertainty           -0.035    15.426    
-    SLICE_X84Y55         FDRE (Setup_fdre_C_R)       -0.632    14.794    m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]
+                         net (fo=195, routed)         1.607    15.089    oled_ctrl_clk_IBUF_BUFG
+    SLICE_X90Y57         FDRE                                         r  FSM_onehot_state_reg[0]/C
+                         clock pessimism              0.394    15.483    
+                         clock uncertainty           -0.035    15.448    
+    SLICE_X90Y57         FDRE (Setup_fdre_C_CE)      -0.169    15.279    FSM_onehot_state_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.794    
-                         arrival time                         -10.933    
+                         required time                         15.279    
+                         arrival time                         -10.747    
   -------------------------------------------------------------------
-                         slack                                  3.861    
+                         slack                                  4.532    
 
 
 
@@ -268,20 +267,20 @@ Slack (MET) :             3.861ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.162ns  (arrival time - required time)
-  Source:                 FSM_onehot_state_reg[2]/C
+Slack (MET) :             0.135ns  (arrival time - required time)
+  Source:                 m_OLEDCtrl/temp_index_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            FSM_onehot_state_reg[6]/D
-                            (rising edge-triggered cell FDRE clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/ADDRARDADDR[10]
+                            (rising edge-triggered cell RAMB18E1 clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             oled_ctrl_clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (oled_ctrl_clk rise@0.000ns - oled_ctrl_clk rise@0.000ns)
-  Data Path Delay:        0.295ns  (logic 0.186ns (62.984%)  route 0.109ns (37.016%))
-  Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.072ns
-    Source Clock Delay      (SCD):    1.555ns
-    Clock Pessimism Removal (CPR):    0.504ns
+  Data Path Delay:        0.372ns  (logic 0.141ns (37.878%)  route 0.231ns (62.122%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.054ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.110ns
+    Source Clock Delay      (SCD):    1.554ns
+    Clock Pessimism Removal (CPR):    0.501ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -292,14 +291,12 @@ Slack (MET) :             0.162ns  (arrival time - required time)
     Y9                   IBUF (Prop_ibuf_I_O)         0.258     0.258 r  oled_ctrl_clk_IBUF_inst/O
                          net (fo=1, routed)           0.663     0.921    oled_ctrl_clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.947 r  oled_ctrl_clk_IBUF_BUFG_inst/O
-                         net (fo=195, routed)         0.608     1.555    oled_ctrl_clk_IBUF_BUFG
-    SLICE_X91Y54         FDRE                                         r  FSM_onehot_state_reg[2]/C
+                         net (fo=195, routed)         0.607     1.554    m_OLEDCtrl/oled_ctrl_clk_IBUF_BUFG
+    SLICE_X91Y58         FDRE                                         r  m_OLEDCtrl/temp_index_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X91Y54         FDRE (Prop_fdre_C_Q)         0.141     1.696 r  FSM_onehot_state_reg[2]/Q
-                         net (fo=3, routed)           0.109     1.805    m_OLEDCtrl/Q[2]
-    SLICE_X90Y54         LUT3 (Prop_lut3_I0_O)        0.045     1.850 r  m_OLEDCtrl/FSM_onehot_state[6]_i_2/O
-                         net (fo=1, routed)           0.000     1.850    m_OLEDCtrl_n_19
-    SLICE_X90Y54         FDRE                                         r  FSM_onehot_state_reg[6]/D
+    SLICE_X91Y58         FDRE (Prop_fdre_C_Q)         0.141     1.695 r  m_OLEDCtrl/temp_index_reg[5]/Q
+                         net (fo=3, routed)           0.231     1.926    m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addrb[5]
+    RAMB18_X4Y25         RAMB18E1                                     r  m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/ADDRARDADDR[10]
   -------------------------------------------------------------------    -------------------
 
                          (clock oled_ctrl_clk rise edge)
@@ -309,15 +306,16 @@ Slack (MET) :             0.162ns  (arrival time - required time)
     Y9                   IBUF (Prop_ibuf_I_O)         0.446     0.446 r  oled_ctrl_clk_IBUF_inst/O
                          net (fo=1, routed)           0.719     1.165    oled_ctrl_clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.194 r  oled_ctrl_clk_IBUF_BUFG_inst/O
-                         net (fo=195, routed)         0.878     2.072    oled_ctrl_clk_IBUF_BUFG
-    SLICE_X90Y54         FDRE                                         r  FSM_onehot_state_reg[6]/C
-                         clock pessimism             -0.504     1.568    
-    SLICE_X90Y54         FDRE (Hold_fdre_C_D)         0.120     1.688    FSM_onehot_state_reg[6]
+                         net (fo=195, routed)         0.915     2.110    m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
+    RAMB18_X4Y25         RAMB18E1                                     r  m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/CLKARDCLK
+                         clock pessimism             -0.501     1.608    
+    RAMB18_X4Y25         RAMB18E1 (Hold_ramb18e1_CLKARDCLK_ADDRARDADDR[10])
+                                                      0.183     1.791    m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram
   -------------------------------------------------------------------
-                         required time                         -1.688    
-                         arrival time                           1.850    
+                         required time                         -1.791    
+                         arrival time                           1.926    
   -------------------------------------------------------------------
-                         slack                                  0.162    
+                         slack                                  0.135    
 
 
 
@@ -332,8 +330,8 @@ Sources:            { oled_ctrl_clk }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
 Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB18_X4Y25  m_OLEDCtrl/PIXEL_BUFFER/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/CLKARDCLK
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X91Y54  FSM_onehot_state_reg[0]/C
-High Pulse Width  Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X91Y54  FSM_onehot_state_reg[0]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X91Y56  disp_off_start_reg/C
+High Pulse Width  Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X92Y56  FSM_onehot_state_reg[1]/C
 
 
 

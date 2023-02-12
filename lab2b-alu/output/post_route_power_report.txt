@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Sun Feb 12 16:19:20 2023
+| Date             : Sun Feb 12 17:49:44 2023
 | Host             : big06.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command          : report_power -file ./output/post_route_power_report.txt
 | Design           : lc4_system_alu
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.119        |
+| Total On-Chip Power (W)  | 0.118        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.013        |
+| Dynamic (W)              | 0.011        |
 | Device Static (W)        | 0.106        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 83.6         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |     0.003 |      803 |       --- |             --- |
-|   LUT as Logic |     0.003 |      435 |     53200 |            0.82 |
-|   Register     |    <0.001 |      205 |    106400 |            0.19 |
+| Slice Logic    |     0.003 |      788 |       --- |             --- |
+|   LUT as Logic |     0.003 |      413 |     53200 |            0.78 |
 |   CARRY4       |    <0.001 |       15 |     13300 |            0.11 |
-|   F7/F8 Muxes  |    <0.001 |       10 |     53200 |            0.02 |
+|   Register     |    <0.001 |      205 |    106400 |            0.19 |
+|   F7/F8 Muxes  |    <0.001 |       16 |     53200 |            0.03 |
 |   Others       |     0.000 |       20 |       --- |             --- |
-| Signals        |     0.003 |      727 |       --- |             --- |
+| Signals        |     0.002 |      703 |       --- |             --- |
 | Block RAM      |     0.004 |      1.5 |       140 |            1.07 |
 | DSPs           |    <0.001 |        1 |       220 |            0.45 |
 | I/O            |    <0.001 |       21 |       200 |           10.50 |
 | Static Power   |     0.106 |          |           |                 |
-| Total          |     0.119 |          |           |                 |
+| Total          |     0.118 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.019 |       0.012 |      0.008 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.018 |       0.011 |      0.008 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -150,9 +150,9 @@ Table of Contents
 +------------------+-----------+
 | Name             | Power (W) |
 +------------------+-----------+
-| lc4_system_alu   |     0.013 |
+| lc4_system_alu   |     0.011 |
 |   alu            |     0.002 |
-|   m_OLEDCtrl     |     0.009 |
+|   m_OLEDCtrl     |     0.008 |
 |     INIT_SEQ     |     0.002 |
 |       U0         |     0.002 |
 |     PIXEL_BUFFER |     0.002 |

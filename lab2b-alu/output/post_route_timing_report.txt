@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Feb 12 16:19:20 2023
+| Date         : Sun Feb 12 17:49:44 2023
 | Host         : big06.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command      : report_timing -file ./output/post_route_timing_report.txt
 | Design       : lc4_system_alu
@@ -11,20 +11,20 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
 Timing Report
 
-Slack (MET) :             3.861ns  (required time - arrival time)
-  Source:                 m_OLEDCtrl/MS_DELAY/stop_time_reg[4]/C
+Slack (MET) :             4.532ns  (required time - arrival time)
+  Source:                 m_OLEDCtrl/state_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]/R
+  Destination:            FSM_onehot_state_reg[0]/CE
                             (rising edge-triggered cell FDRE clocked by oled_ctrl_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             oled_ctrl_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (oled_ctrl_clk rise@10.000ns - oled_ctrl_clk rise@0.000ns)
-  Data Path Delay:        5.447ns  (logic 1.546ns (28.381%)  route 3.901ns (71.619%))
-  Logic Levels:           4  (CARRY4=1 LUT3=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.031ns = ( 15.031 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.485ns
-    Clock Pessimism Removal (CPR):    0.430ns
+  Data Path Delay:        5.260ns  (logic 1.182ns (22.471%)  route 4.078ns (77.529%))
+  Logic Levels:           4  (LUT3=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.003ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.089ns = ( 15.089 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.486ns
+    Clock Pessimism Removal (CPR):    0.394ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -40,21 +40,20 @@ Slack (MET) :             3.861ns  (required time - arrival time)
     Y9                   IBUF (Prop_ibuf_I_O)         1.490     1.490 r  oled_ctrl_clk_IBUF_inst/O
                          net (fo=1, routed)           2.171     3.661    oled_ctrl_clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.762 r  oled_ctrl_clk_IBUF_BUFG_inst/O
-                         net (fo=195, routed)         1.723     5.485    m_OLEDCtrl/MS_DELAY/oled_ctrl_clk_IBUF_BUFG
-    SLICE_X85Y58         FDRE                                         r  m_OLEDCtrl/MS_DELAY/stop_time_reg[4]/C
+                         net (fo=195, routed)         1.724     5.486    m_OLEDCtrl/oled_ctrl_clk_IBUF_BUFG
+    SLICE_X84Y55         FDRE                                         r  m_OLEDCtrl/state_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X85Y58         FDRE (Prop_fdre_C_Q)         0.419     5.904 r  m_OLEDCtrl/MS_DELAY/stop_time_reg[4]/Q
-                         net (fo=1, routed)           0.969     6.874    m_OLEDCtrl/MS_DELAY/stop_time[4]
-    SLICE_X85Y57         LUT6 (Prop_lut6_I3_O)        0.299     7.173 r  m_OLEDCtrl/MS_DELAY/state1_carry_i_3/O
-                         net (fo=1, routed)           0.000     7.173    m_OLEDCtrl/MS_DELAY/state1_carry_i_3_n_0
-    SLICE_X85Y57         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.723 r  m_OLEDCtrl/MS_DELAY/state1_carry/CO[3]
-                         net (fo=2, routed)           1.036     8.758    m_OLEDCtrl/MS_DELAY/state10_in
-    SLICE_X85Y60         LUT3 (Prop_lut3_I1_O)        0.124     8.882 r  m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_4/O
-                         net (fo=1, routed)           0.949     9.832    m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_4_n_0
-    SLICE_X85Y62         LUT5 (Prop_lut5_I3_O)        0.154     9.986 r  m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_1/O
-                         net (fo=12, routed)          0.947    10.933    m_OLEDCtrl/MS_DELAY/ms_counter[0]_i_1_n_0
-    SLICE_X84Y55         FDRE                                         r  m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]/R
+    SLICE_X84Y55         FDRE (Prop_fdre_C_Q)         0.456     5.942 f  m_OLEDCtrl/state_reg[1]/Q
+                         net (fo=66, routed)          1.528     7.470    m_OLEDCtrl/oled_dc
+    SLICE_X89Y56         LUT3 (Prop_lut3_I1_O)        0.152     7.622 f  m_OLEDCtrl/temp_delay_ms[7]_i_4/O
+                         net (fo=2, routed)           0.594     8.216    m_OLEDCtrl/temp_delay_ms[7]_i_4_n_0
+    SLICE_X89Y55         LUT6 (Prop_lut6_I1_O)        0.326     8.542 f  m_OLEDCtrl/disp_on_start_i_2/O
+                         net (fo=3, routed)           0.679     9.221    m_OLEDCtrl/disp_on_start_reg
+    SLICE_X90Y57         LUT3 (Prop_lut3_I1_O)        0.124     9.345 r  m_OLEDCtrl/FSM_onehot_state[6]_i_4/O
+                         net (fo=1, routed)           0.670    10.015    m_OLEDCtrl/disp_on_start
+    SLICE_X90Y57         LUT5 (Prop_lut5_I2_O)        0.124    10.139 r  m_OLEDCtrl/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.608    10.747    m_OLEDCtrl_n_19
+    SLICE_X90Y57         FDRE                                         r  FSM_onehot_state_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock oled_ctrl_clk rise edge)
@@ -64,16 +63,16 @@ Slack (MET) :             3.861ns  (required time - arrival time)
     Y9                   IBUF (Prop_ibuf_I_O)         1.420    11.420 r  oled_ctrl_clk_IBUF_inst/O
                          net (fo=1, routed)           1.972    13.392    oled_ctrl_clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.483 r  oled_ctrl_clk_IBUF_BUFG_inst/O
-                         net (fo=195, routed)         1.549    15.031    m_OLEDCtrl/MS_DELAY/oled_ctrl_clk_IBUF_BUFG
-    SLICE_X84Y55         FDRE                                         r  m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]/C
-                         clock pessimism              0.430    15.461    
-                         clock uncertainty           -0.035    15.426    
-    SLICE_X84Y55         FDRE (Setup_fdre_C_R)       -0.632    14.794    m_OLEDCtrl/MS_DELAY/ms_counter_reg[0]
+                         net (fo=195, routed)         1.607    15.089    oled_ctrl_clk_IBUF_BUFG
+    SLICE_X90Y57         FDRE                                         r  FSM_onehot_state_reg[0]/C
+                         clock pessimism              0.394    15.483    
+                         clock uncertainty           -0.035    15.448    
+    SLICE_X90Y57         FDRE (Setup_fdre_C_CE)      -0.169    15.279    FSM_onehot_state_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.794    
-                         arrival time                         -10.933    
+                         required time                         15.279    
+                         arrival time                         -10.747    
   -------------------------------------------------------------------
-                         slack                                  3.861    
+                         slack                                  4.532    
 
 
 
