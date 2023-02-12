@@ -99,6 +99,7 @@ module gpn
   assign pout = pin[0];
 
   // Generate values for cout
+  genvar i;
   for (i = 0; i < N-2; i=i+1) begin
     assign cout[i] = gin[i] | (pin[i] & gin[i+1]) | (pin[i] & pin[i+1] & cin);
   end
