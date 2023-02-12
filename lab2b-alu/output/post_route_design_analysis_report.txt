@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Feb 12 02:14:20 2023
-| Host         : big01.seas.upenn.edu running 64-bit openSUSE Leap 15.4
+| Date         : Sun Feb 12 16:19:20 2023
+| Host         : big06.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command      : report_design_analysis -file ./output/post_route_design_analysis_report.txt
 | Design       : lc4_system_alu
 | Device       : xc7z020
@@ -22,48 +22,48 @@ Table of Contents
 1. Setup Path Characteristics 1-1
 ---------------------------------
 
-+---------------------------+----------------------------------------------------+
-|      Characteristics      |                       Path #1                      |
-+---------------------------+----------------------------------------------------+
-| Requirement               | 10.000                                             |
-| Path Delay                | 5.493                                              |
-| Logic Delay               | 1.145(21%)                                         |
-| Net Delay                 | 4.348(79%)                                         |
-| Clock Skew                | -0.024                                             |
-| Slack                     | 3.923                                              |
-| Clock Relationship        | Safely Timed                                       |
-| Logic Levels              | 4                                                  |
-| Routes                    | 5                                                  |
-| Logical Path              | FDRE-(14)-LUT3-(7)-LUT6-(3)-LUT6-(8)-LUT2-(1)-FDRE |
-| Start Point Clock         | oled_ctrl_clk                                      |
-| End Point Clock           | oled_ctrl_clk                                      |
-| DSP Block                 | None                                               |
-| BRAM                      | None                                               |
-| IO Crossings              | 0                                                  |
-| Config Crossings          | 0                                                  |
-| SLR Crossings             | 0                                                  |
-| PBlocks                   | 0                                                  |
-| High Fanout               | 14                                                 |
-| Dont Touch                | 0                                                  |
-| Mark Debug                | 0                                                  |
-| Start Point Pin Primitive | FDRE/C                                             |
-| End Point Pin Primitive   | FDRE/R                                             |
-| Start Point Pin           | state_reg[7]/C                                     |
-| End Point Pin             | write_base_addr_reg[8]/R                           |
-+---------------------------+----------------------------------------------------+
++---------------------------+--------------------------------------------------+
+|      Characteristics      |                      Path #1                     |
++---------------------------+--------------------------------------------------+
+| Requirement               | 10.000                                           |
+| Path Delay                | 5.447                                            |
+| Logic Delay               | 1.546(29%)                                       |
+| Net Delay                 | 3.901(71%)                                       |
+| Clock Skew                | -0.024                                           |
+| Slack                     | 3.861                                            |
+| Clock Relationship        | Safely Timed                                     |
+| Logic Levels              | 4                                                |
+| Routes                    | 4                                                |
+| Logical Path              | FDRE-(1)-LUT6-(1)-CARRY4-LUT3-(1)-LUT5-(12)-FDRE |
+| Start Point Clock         | oled_ctrl_clk                                    |
+| End Point Clock           | oled_ctrl_clk                                    |
+| DSP Block                 | None                                             |
+| BRAM                      | None                                             |
+| IO Crossings              | 0                                                |
+| Config Crossings          | 0                                                |
+| SLR Crossings             | 0                                                |
+| PBlocks                   | 0                                                |
+| High Fanout               | 12                                               |
+| Dont Touch                | 0                                                |
+| Mark Debug                | 0                                                |
+| Start Point Pin Primitive | FDRE/C                                           |
+| End Point Pin Primitive   | FDRE/R                                           |
+| Start Point Pin           | stop_time_reg[4]/C                               |
+| End Point Pin             | ms_counter_reg[0]/R                              |
++---------------------------+--------------------------------------------------+
 * Bounding box calculated as % of dimensions for the target device (308, 299)
 
 
 2. Logic Level Distribution
 ---------------------------
 
-+-----------------+-------------+----+-----+-----+----+----+---+
-| End Point Clock | Requirement |  0 |  1  |  2  |  3 |  4 | 5 |
-+-----------------+-------------+----+-----+-----+----+----+---+
-| oled_ctrl_clk   | 10.000ns    | 86 | 100 | 133 | 68 | 47 | 4 |
-+-----------------+-------------+----+-----+-----+----+----+---+
++-----------------+-------------+----+----+-----+----+----+
+| End Point Clock | Requirement |  0 |  1 |  2  |  3 |  4 |
++-----------------+-------------+----+----+-----+----+----+
+| oled_ctrl_clk   | 10.000ns    | 86 | 93 | 120 | 84 | 59 |
++-----------------+-------------+----+----+-----+----+----+
 * Columns represent the logic levels per end point clock
-** Distribution is for top worst 438 paths
+** Distribution is for top worst 442 paths
 
 
 3. Placer Final Level Congestion Reporting
