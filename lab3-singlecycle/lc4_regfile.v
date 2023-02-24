@@ -23,8 +23,25 @@ module lc4_regfile #(parameter n = 16)
     input  wire         i_rd_we    // write enable
     );
 
-   /***********************
-    * TODO YOUR CODE HERE *
-    ***********************/
+ reg [n-1:0] reg_file [0:7];
 
+ always @(posedge clk, posedge rst) begin
+   if (rst) begin
+     reg_file[0] <= 0;
+     reg_file[1] <= 0;
+     reg_file[2] <= 0;
+     reg_file[3] <= 0;
+     reg_file[4] <= 0;
+     reg_file[5] <= 0;
+     reg_file[6] <= 0;
+     reg_file[7] <= 0;
+ end
+ else if (gwe && i_rd_we) begin
+    reg_file[i_rd] <= i_wdata;
+   end
+ end
+
+ assign o_rs_data = reg_file[i_rs];
+ assign o_rt_data = reg_file[i_rt];
+                  
 endmodule
