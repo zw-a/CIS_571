@@ -71,7 +71,7 @@ module lc4_processor
     wire [2:0] rd;
     wire       r1re;               // does this instruction read from rs?
     wire       r2re;               // does this instruction read from rt?
-    wire       i_rd_we;            // does this instruction write to rd?
+    wire       i_rd_we;                 // does this instruction write to rd?
     wire       nzp_we;             // does this instruction write the NZP bits?
     wire       select_pc_plus_one; // write PC+1 to the regfile?
     wire       is_load;            // is this a load instruction?
@@ -132,24 +132,20 @@ module lc4_processor
     assign o_cur_pc = pc;
     assign test_cur_pc = pc;
     wire [15:0] pc_plus_one;
-    cla16 cla(.a(pc), .b(16'h0000), .cin(1'b1), .sum(pc_plus_one));
+    cla16 cla (.a(pc), .b(16'h0000), .cin(1'b1), .sum(pc_plus_one));
    
    
     wire [2:0] nzp_new_bits;
     wire [2:0] nzp_r;
-    wire [15:0] test;
-    wire [2:0] opcode = i_cur_insn [11:9];
-    wire n = (i_wdata[15] & 1'b1);
-    wire z = (i_wdata ==16'h0000); 
-    Nbit_reg #(3) nzp_reg (.in(nzp_new_bits), .out(nzp_r), .clk(clk), .we(nzp_we), .gwe(gwe), .rst(rst));
-    assign nzp_new_bits = (n & ~z) ? 3'b100 : 
-                          (~n & z) ? 3'b010 :  3'b001 ;
-    assign test_nzp_new_bits = nzp_new_bits;
+    wire n = (i_wdata[15] == 1'b1);
+    wire z = (i_wdata == 0); 
+    Nbit_reg #(3,3'b000) nzp_reg (.in(nzp_new_bits), .out(nzp_r), .clk(clk), .we(nzp_we), .gwe(gwe), .rst(rst));
+    assign nzp_new_bits = (n) ? 3'b100 : 
+                          (z) ? 3'b010 :  3'b001 ;
+    assign test_nzp_new_bits = nzp_r;
    
-    assign test = (opcode == 3'b000)? 1'b0: (opcode == 3'b001)? nzp_r[0]: (opcode == 3'b010)? nzp_r[1]: (opcode == 3'b011)? (nzp_r[1]|nzp_r[0]): (opcode == 3'b100)? nzp_r[2]:
-                  (opcode == 3'b101)? (nzp_r[2]|nzp_r[0]): (opcode == 3'b110)?(nzp_r[2]|nzp_r[1]): (nzp_r[2]|nzp_r[1]|nzp_r[0]);
     
-    assign next_pc = (is_branch & test | is_control_insn) ? alu_out:pc_plus_one;
+    assign next_pc = (select_pc_plus_one) ? pc_plus_one:alu_out;
     assign o_dmem_addr = (is_load|is_store) ? alu_out : 16'h0000;
     
      
