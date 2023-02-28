@@ -36,6 +36,7 @@ module lc4_alu(input  wire [15:0] i_insn,
                         (sel1 == 3'd5) ? $signed(F) :
                         (sel1 == 3'd6) ? $signed(G) : $signed(H);
       wire [15:0] mux1, mux2, mux3;
+      wire [15:0] mul, sub, div, mod, Rt_neg;
       wire mux4, mux5;
       wire cin;
       wire [15:0] cla_out;
@@ -57,7 +58,6 @@ module lc4_alu(input  wire [15:0] i_insn,
       
       //math operations
       wire [2:0] sel2;
-      wire [15:0] mul, sub, div, mod, Rt_neg;
       lc4_divider div1(.i_dividend(i_r1data), .i_divisor(i_r2data), .o_quotient(div), .o_remainder(mod));
       assign sel2 = i_insn[5:3];
       assign mul = i_r1data * i_r2data;
