@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Tue Feb 28 19:35:17 2023
+| Date         : Tue Feb 28 19:46:26 2023
 | Host         : big06.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command      : report_timing_summary -file ./output/post_synth_timing_summary_report.txt
 | Design       : lc4_system
@@ -128,7 +128,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      5.959        0.000                      0                 1932        0.083        0.000                      0                 1932        3.000        0.000                       0                   387  
+      5.209        0.000                      0                 1932        0.083        0.000                      0                 1932        3.000        0.000                       0                   387  
 
 
 All user specified timing constraints are met.
@@ -142,7 +142,7 @@ All user specified timing constraints are met.
 Clock                                 Waveform(ns)       Period(ns)      Frequency(MHz)
 -----                                 ------------       ----------      --------------
 CLOCK_100MHz                          {0.000 5.000}      10.000          100.000         
-  clk_processor_design_1_clk_wiz_0_0  {0.000 33.500}     67.000          14.925          
+  clk_processor_design_1_clk_wiz_0_0  {0.000 33.125}     66.250          15.094          
   clk_vga_design_1_clk_wiz_0_0        {0.000 20.000}     40.000          25.000          
   clk_vga_inv_design_1_clk_wiz_0_0    {20.000 40.000}    40.000          25.000          
   clkfbout_design_1_clk_wiz_0_0       {0.000 5.000}      10.000          100.000         
@@ -156,7 +156,7 @@ CLOCK_100MHz                          {0.000 5.000}      10.000          100.000
 Clock                                     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----                                     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 CLOCK_100MHz                                                                                                                                                                            3.000        0.000                       0                     1  
-  clk_processor_design_1_clk_wiz_0_0        5.959        0.000                      0                 1746        0.142        0.000                      0                 1746       33.000        0.000                       0                   329  
+  clk_processor_design_1_clk_wiz_0_0        5.209        0.000                      0                 1746        0.142        0.000                      0                 1746       32.625        0.000                       0                   329  
   clk_vga_design_1_clk_wiz_0_0                                                                                                                                                         37.424        0.000                       0                    10  
   clk_vga_inv_design_1_clk_wiz_0_0         35.931        0.000                      0                   62        0.083        0.000                      0                   62       19.020        0.000                       0                    44  
   clkfbout_design_1_clk_wiz_0_0                                                                                                                                                         7.845        0.000                       0                     3  
@@ -217,26 +217,26 @@ High Pulse Width  Fast    MMCME2_ADV/CLKIN1  n/a            2.000         5.000 
 From Clock:  clk_processor_design_1_clk_wiz_0_0
   To Clock:  clk_processor_design_1_clk_wiz_0_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        5.959ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        5.209ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.142ns,  Total Violation        0.000ns
-PW    :            0  Failing Endpoints,  Worst Slack       33.000ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack       32.625ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             5.959ns  (required time - arrival time)
+Slack (MET) :             5.209ns  (required time - arrival time)
   Source:                 memory/memory/IDRAM_reg_0_12/CLKBWRCLK
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.500ns period=67.000ns})
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.125ns period=66.250ns})
   Destination:            proc_inst/nzp_reg/state_reg[1]/D
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.500ns period=67.000ns})
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.125ns period=66.250ns})
   Path Group:             clk_processor_design_1_clk_wiz_0_0
   Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            67.000ns  (clk_processor_design_1_clk_wiz_0_0 rise@67.000ns - clk_processor_design_1_clk_wiz_0_0 rise@0.000ns)
+  Requirement:            66.250ns  (clk_processor_design_1_clk_wiz_0_0 rise@66.250ns - clk_processor_design_1_clk_wiz_0_0 rise@0.000ns)
   Data Path Delay:        60.841ns  (logic 19.217ns (31.586%)  route 41.624ns (68.414%))
   Logic Levels:           76  (CARRY4=32 LUT3=2 LUT4=3 LUT5=14 LUT6=24 RAMB36E1=1)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -2.229ns = ( 64.771 - 67.000 ) 
+    Destination Clock Delay (DCD):    -2.229ns = ( 64.021 - 66.250 ) 
     Source Clock Delay      (SCD):    -1.554ns
     Clock Pessimism Removal (CPR):    0.531ns
   Clock Uncertainty:      0.099ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
@@ -451,25 +451,25 @@ Slack (MET) :             5.959ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_processor_design_1_clk_wiz_0_0 rise edge)
-                                                     67.000    67.000 r  
-    Y9                                                0.000    67.000 r  CLOCK_100MHz (IN)
-                         net (fo=0)                   0.000    67.000    mmcm0/CLOCK_100MHz
-    Y9                   IBUF (Prop_ibuf_I_O)         1.420    68.420 r  mmcm0/clkin1_ibufg/O
-                         net (fo=1, unplaced)         0.439    68.859    mmcm0/clk_in1_design_1_clk_wiz_0_0
+                                                     66.250    66.250 r  
+    Y9                                                0.000    66.250 r  CLOCK_100MHz (IN)
+                         net (fo=0)                   0.000    66.250    mmcm0/CLOCK_100MHz
+    Y9                   IBUF (Prop_ibuf_I_O)         1.420    67.670 r  mmcm0/clkin1_ibufg/O
+                         net (fo=1, unplaced)         0.439    68.109    mmcm0/clk_in1_design_1_clk_wiz_0_0
                          MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -5.378    63.481 r  mmcm0/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, unplaced)         0.760    64.241    mmcm0/clk_processor_design_1_clk_wiz_0_0
-                         BUFG (Prop_bufg_I_O)         0.091    64.332 r  mmcm0/clkout1_buf/O
-                         net (fo=327, unplaced)       0.439    64.771    proc_inst/nzp_reg/clk_processor
+                                                     -5.378    62.731 r  mmcm0/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.760    63.491    mmcm0/clk_processor_design_1_clk_wiz_0_0
+                         BUFG (Prop_bufg_I_O)         0.091    63.582 r  mmcm0/clkout1_buf/O
+                         net (fo=327, unplaced)       0.439    64.021    proc_inst/nzp_reg/clk_processor
                          FDRE                                         r  proc_inst/nzp_reg/state_reg[1]/C
-                         clock pessimism              0.531    65.301    
-                         clock uncertainty           -0.099    65.202    
-                         FDRE (Setup_fdre_C_D)        0.044    65.246    proc_inst/nzp_reg/state_reg[1]
+                         clock pessimism              0.531    64.551    
+                         clock uncertainty           -0.099    64.452    
+                         FDRE (Setup_fdre_C_D)        0.044    64.496    proc_inst/nzp_reg/state_reg[1]
   -------------------------------------------------------------------
-                         required time                         65.246    
+                         required time                         64.496    
                          arrival time                         -59.287    
   -------------------------------------------------------------------
-                         slack                                  5.959    
+                         slack                                  5.209    
 
 
 
@@ -479,9 +479,9 @@ Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack (MET) :             0.142ns  (arrival time - required time)
   Source:                 fake_kbd_inst/op_d/state_reg/state_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.500ns period=67.000ns})
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.125ns period=66.250ns})
   Destination:            fake_kbd_inst/op_d/state_reg/state_reg[0]/D
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.500ns period=67.000ns})
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@33.125ns period=66.250ns})
   Path Group:             clk_processor_design_1_clk_wiz_0_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_processor_design_1_clk_wiz_0_0 rise@0.000ns - clk_processor_design_1_clk_wiz_0_0 rise@0.000ns)
@@ -541,15 +541,15 @@ Slack (MET) :             0.142ns  (arrival time - required time)
 Pulse Width Checks
 --------------------------------------------------------------------------------------
 Clock Name:         clk_processor_design_1_clk_wiz_0_0
-Waveform(ns):       { 0.000 33.500 }
-Period(ns):         67.000
+Waveform(ns):       { 0.000 33.125 }
+Period(ns):         66.250
 Sources:            { mmcm0/mmcm_adv_inst/CLKOUT0 }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            3.363         67.000      63.637               memory/memory/IDRAM_reg_0_13/CLKARDCLK
-Max Period        n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       67.000      146.360              mmcm0/mmcm_adv_inst/CLKOUT0
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         33.500      33.000               proc_inst/nzp_reg/state_reg[0]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         33.500      33.000               proc_inst/nzp_reg/state_reg[0]/C
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            3.363         66.250      62.887               memory/memory/IDRAM_reg_0_13/CLKARDCLK
+Max Period        n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       66.250      147.110              mmcm0/mmcm_adv_inst/CLKOUT0
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         33.125      32.625               proc_inst/nzp_reg/state_reg[0]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         33.125      32.625               proc_inst/nzp_reg/state_reg[0]/C
 
 
 
