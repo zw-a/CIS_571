@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Tue Feb 28 20:01:14 2023
+| Date             : Tue Feb 28 20:10:44 2023
 | Host             : big06.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command          : report_power -file ./output/post_route_power_report.txt
 | Design           : lc4_system
@@ -54,14 +54,14 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.001 |        7 |       --- |             --- |
 | Slice Logic             |     0.003 |     2357 |       --- |             --- |
-|   LUT as Logic          |     0.003 |     1461 |     53200 |            2.75 |
+|   LUT as Logic          |     0.003 |     1490 |     53200 |            2.80 |
 |   CARRY4                |    <0.001 |      120 |     13300 |            0.90 |
 |   Register              |    <0.001 |      296 |    106400 |            0.28 |
 |   F7/F8 Muxes           |    <0.001 |       16 |     53200 |            0.03 |
 |   LUT as Shift Register |    <0.001 |        2 |     17400 |            0.01 |
 |   Others                |     0.000 |       81 |       --- |             --- |
 | Signals                 |     0.005 |     1860 |       --- |             --- |
-| Block RAM               |     0.018 |     39.5 |       140 |           28.21 |
+| Block RAM               |     0.017 |     39.5 |       140 |           28.21 |
 | MMCM                    |     0.122 |        1 |         4 |           25.00 |
 | DSPs                    |    <0.001 |        1 |       220 |            0.45 |
 | I/O                     |     0.006 |       36 |       200 |           18.00 |
@@ -140,7 +140,7 @@ Table of Contents
 | Clock                              | Domain                                   | Constraint (ns) |
 +------------------------------------+------------------------------------------+-----------------+
 | CLOCK_100MHz                       | CLOCK_100MHz                             |            10.0 |
-| clk_processor_design_1_clk_wiz_0_0 | mmcm0/clk_processor_design_1_clk_wiz_0_0 |            65.2 |
+| clk_processor_design_1_clk_wiz_0_0 | mmcm0/clk_processor_design_1_clk_wiz_0_0 |            65.8 |
 | clk_vga_design_1_clk_wiz_0_0       | mmcm0/clk_vga_design_1_clk_wiz_0_0       |            40.0 |
 | clk_vga_inv_design_1_clk_wiz_0_0   | mmcm0/clk_vga_inv_design_1_clk_wiz_0_0   |            40.0 |
 | clkfbout_design_1_clk_wiz_0_0      | mmcm0/clkfbout_design_1_clk_wiz_0_0      |            10.0 |
@@ -162,7 +162,7 @@ Table of Contents
 |       i1out_reg |     0.002 |
 |   mmcm0         |     0.123 |
 |   proc_inst     |     0.006 |
-|     regfile     |     0.004 |
+|     regfile     |     0.005 |
 +-----------------+-----------+
 
 
