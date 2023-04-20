@@ -1,31 +1,37 @@
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
 |       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_A/state_reg[13]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[2]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[3]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                             proc_inst/F_PC/state_reg[2]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_B/state_reg[10]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[8]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[2]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                             proc_inst/F_PC/state_reg[0]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_A/state_reg[10]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_A/state_reg[0]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[4]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_A/state_reg[6]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[6]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[9]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[4]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[4]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[6]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[7]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_B/state_reg[14]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                        proc_inst/D_Stall_A/state_reg[1]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_PC_A/state_reg[15]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_PC_B/state_reg[12]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_PC_B/state_reg[15]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[1]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[0]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_A/state_reg[1]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[7]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[8]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[6]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[2]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_PC_B/state_reg[11]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_B/state_reg[14]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[3]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_B/state_reg[12]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_B/state_reg[10]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[4]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[5]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[4]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[9]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_A/state_reg[13]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_A/state_reg[1]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_A/state_reg[10]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_B/state_reg[11]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_IR_B/state_reg[0]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_PC_B/state_reg[11]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_IR_A/state_reg[12]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_B/state_reg[7]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                           proc_inst/D_PC_A/state_reg[8]/D|
+| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                          proc_inst/D_PC_B/state_reg[15]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                        proc_inst/X_Stall_A/state_reg[1]/D|
-| clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                    proc_inst/pipeB_nzp_reg/state_reg[1]/D|
 | clk_processor_design_1_clk_wiz_0_0 |clk_processor_design_1_clk_wiz_0_0 |                                                                    proc_inst/pipeB_nzp_reg/state_reg[0]/D|
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

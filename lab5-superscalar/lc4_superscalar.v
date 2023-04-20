@@ -48,12 +48,12 @@ module lc4_processor(input wire         clk,             // main clock
    
    wire [15:0]  Fout_pc, pc_plus_one, pc_plus_two, F_pc_out_A, D_IR_in_A, rs_data_A, rt_data_A, alu_out_A, AluBP_rs_A, AluBP_rt_A;
    wire [1:0]   D_stall_in_A, D_regstall_in_A, D_stall_out_A, DX_stall_A, XM_stall_A, MW_stall_A;
-   reg  [15:0]  F_pc_out_A_reg, D_IR_in_A_reg;
+   reg  [15:0]  F_pc_out_A_reg, D_IR_in_A_reg; 
    reg  [1:0]   D_stall_in_A_reg;
    wire [15:0]  stgD_IR_in_A, D_IR_out_A, X_rs_data_A, X_rt_data_A, M_in_A, M_out_A, M_out_B_A, W_rDmemData_in_A, W_r0_out_A, W_rD_out_A, W_result_A, DX_pc_A, X_pc_out_A, MW_pc_A, W_pc_out_A, dmem_addr_A;
    wire [33:0]  X_IR_in_A, DX_dcd_A, XM_dcd_A, MW_dcd_A_A, W_dcd_A;
    wire [2:0]   MW_nzp_bits_A, W_rNZP_in_A;
-   wire [15:0]  next_pc, Stage_D_pc_in_A, Stage_D_pc_in_B, next_pc_added;
+   wire [15:0]  next_pc, Stage_D_pc_in_A, Stage_D_pc_in_B, next_pc_added, BP_A, BP_B;
 
  
   lc4_decoder dcdA (.r1sel(DX_dcd_A[33:31]), 
@@ -270,7 +270,7 @@ module lc4_processor(input wire         clk,             // main clock
     if (MW_dcd_A_A[19] == 1) begin
         W_rDmemData_in_A_aux = i_cur_dmem_data;
     end else if (MW_dcd_A_A[18] == 1) begin
-        W_rDmemData_in_A_aux = 16'b1;
+        W_rDmemData_in_A_aux = BP_A;
     end else begin
         W_rDmemData_in_A_aux = 16'b0;
     end
@@ -333,6 +333,18 @@ module lc4_processor(input wire         clk,             // main clock
    reg XbDbR2_dependence;
    reg XbDbBr_dependence;
    reg LTU_B_XbDb;
+
+    assign BP_B = 
+      ((MW_dcd_A_A[27:25] == MW_dcd_B[30:28]) &&                             
+      (MW_dcd_A_A[22] == 1) && (MW_dcd_B[18] == 1)) ? M_out_A :    
+      ((MW_dcd_B[18]) && (W_dcd_B[22]) && (MW_dcd_B[30:28] == W_dcd_B[27:25])) ? W_result_B:  
+      ((MW_dcd_B[18]) && (W_dcd_A[22]) && (MW_dcd_B[30:28] == W_dcd_A[27:25])) ? W_result_A:  
+       M_out_B_B;
+
+    assign BP_A = 
+      ((MW_dcd_A_A[18]) && (W_dcd_B[22]) && (MW_dcd_A_A[30:28] == W_dcd_B[27:25])) ? W_result_B:  
+      ((MW_dcd_A_A[18]) && (W_dcd_A[22]) && (MW_dcd_A_A[30:28] == W_dcd_A[27:25])) ? W_result_A:
+      M_out_B_A;
 
    always @(*) begin
     if ((DX_dcd_A[24]) && (XM_dcd_B[22]) && (DX_dcd_A[33:31] == XM_dcd_B[27:25]))
@@ -588,7 +600,7 @@ module lc4_processor(input wire         clk,             // main clock
    assign M_in_B_sel = (XM_dcd_B[16] == 1) ? DX_pc_A : alu_out_B;
    assign W_rNZP_in_B_sel = (MW_dcd_B[19] == 1) ? nzp_new_bs_ld_B : MW_nzp_bits_B;
    assign W_result_B_sel = (W_dcd_B[19] == 1) ? W_rD_out_B : W_r0_out_B;
-   assign W_rDmemData_in_B_sel = (MW_dcd_B[19] == 1) ? i_cur_dmem_data : (MW_dcd_B[18] == 1) ? 16'b1 : 16'b0;
+   assign W_rDmemData_in_B_sel = (MW_dcd_B[19] == 1) ? i_cur_dmem_data : (MW_dcd_B[18] == 1) ? BP_B : 16'b0;
    assign dmem_addr_B_sel = (MW_dcd_B[19] == 1) || (MW_dcd_B[18] == 1) ? M_out_B : 16'b0;
 
    assign M_in_B = M_in_B_sel;
@@ -647,10 +659,10 @@ module lc4_processor(input wire         clk,             // main clock
    assign test_regfile_data_B = W_result_B;  
    assign test_nzp_we_A = W_dcd_A[21];
    assign test_nzp_we_B = W_dcd_B[21];
-   assign o_dmem_we = W_dcd_A[18] | W_dcd_B[18];
-   assign o_dmem_towrite = (W_dcd_A[18] == 1) ? W_result_A : W_result_B;
-   assign o_dmem_addr = ((MW_dcd_A_A[18] == 1) || (MW_dcd_A_A[18] == 1)) ? M_out_A :  
-                        ((MW_dcd_B[18] == 1) || (MW_dcd_B[18] == 1)) ? M_out_B :16'b0;         
+   assign o_dmem_we = MW_dcd_A_A[18] | MW_dcd_B[18];
+   assign o_dmem_towrite = (MW_dcd_A_A[18] == 1) ? BP_A : BP_B;
+   assign o_dmem_addr = ((MW_dcd_A_A[19] == 1) || (MW_dcd_A_A[18] == 1)) ? M_out_A :  
+                        ((MW_dcd_B[19] == 1) || (MW_dcd_B[18] == 1)) ? M_out_B :16'b0;         
    
    /* Add $display(...) calls in the always block below to
     * print out debug information at the end of every cycle.
