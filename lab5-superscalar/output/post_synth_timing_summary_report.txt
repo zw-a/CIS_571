@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Thu Apr 20 15:49:12 2023
-| Host         : big19.seas.upenn.edu running 64-bit openSUSE Leap 15.4
+| Date         : Thu Apr 20 20:39:59 2023
+| Host         : big13.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command      : report_timing_summary -file ./output/post_synth_timing_summary_report.txt
 | Design       : lc4_system
 | Device       : 7z020-clg484
@@ -260,7 +260,7 @@ Slack (VIOLATED) :        -12.903ns  (required time - arrival time)
                          FDRE                                         r  proc_inst/M_IR_B/state_reg[27]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.478    -1.076 r  proc_inst/M_IR_B/state_reg[27]/Q
-                         net (fo=5, unplaced)         0.769    -0.307    proc_inst/X_IR_A/p_0_in8_in[2]
+                         net (fo=5, unplaced)         0.769    -0.307    proc_inst/X_IR_A/p_0_in9_in[2]
                          LUT4 (Prop_lut4_I1_O)        0.295    -0.012 r  proc_inst/X_IR_A/mul_i_105/O
                          net (fo=20, unplaced)        1.171     1.159    proc_inst/X_IR_A/state_reg[33]_1
                          LUT6 (Prop_lut6_I1_O)        0.124     1.283 f  proc_inst/X_IR_A/mul_i_95/O

@@ -48,14 +48,13 @@ module lc4_processor(input wire         clk,             // main clock
    
    wire [15:0]  Fout_pc, pc_plus_one, pc_plus_two, F_pc_out_A, D_IR_in_A, rs_data_A, rt_data_A, alu_out_A, AluBP_rs_A, AluBP_rt_A;
    wire [1:0]   D_stall_in_A, D_regstall_in_A, D_stall_out_A, DX_stall_A, XM_stall_A, MW_stall_A;
-   reg  [15:0]  F_pc_out_A_reg, D_IR_in_A_reg; 
-   reg  [1:0]   D_stall_in_A_reg;
    wire [15:0]  stgD_IR_in_A, D_IR_out_A, X_rs_data_A, X_rt_data_A, M_in_A, M_out_A, M_out_B_A, W_rDmemData_in_A, W_r0_out_A, W_rD_out_A, W_result_A, DX_pc_A, X_pc_out_A, MW_pc_A, W_pc_out_A, dmem_addr_A;
    wire [33:0]  X_IR_in_A, DX_dcd_A, XM_dcd_A, MW_dcd_A_A, W_dcd_A;
    wire [2:0]   MW_nzp_bits_A, W_rNZP_in_A;
-   wire [15:0]  next_pc, Stage_D_pc_in_A, Stage_D_pc_in_B, next_pc_added, BP_A, BP_B;
+   wire [15:0]  next_pc, Stage_D_pc_in_A, Stage_D_pc_in_B, next_pc_added;
+   reg  [15:0]  F_pc_out_A_reg, D_IR_in_A_reg, BP_A, BP_B; 
+   reg  [1:0]   D_stall_in_A_reg;
 
- 
   lc4_decoder dcdA (.r1sel(DX_dcd_A[33:31]), 
                     .r2sel(DX_dcd_A[30:28]),
                     .wsel(DX_dcd_A[27:25]),
@@ -174,6 +173,7 @@ module lc4_processor(input wire         clk,             // main clock
    
    cla16 pc_plus_1(.a(Fout_pc), .b(16'b0), .cin(1'b1), .sum(pc_plus_one));
    cla16 pc_plus_2(.a(pc_plus_one), .b(16'b0), .cin(1'b1), .sum(pc_plus_two));
+   
    // bypassing logic
    assign Stage_D_pc_in_A = Fout_pc;
    assign Stage_D_pc_in_B = pc_plus_one;
@@ -283,6 +283,7 @@ module lc4_processor(input wire         clk,             // main clock
         dmem_addr_A_aux = 16'b0;
     end
    end
+   
    // bypassing and stalling
    assign dmem_addr_A = dmem_addr_A_aux;
    assign ps_not_br = (pipe_switch == 1 && branch_taken == 0);
@@ -290,14 +291,14 @@ module lc4_processor(input wire         clk,             // main clock
    assign D_IR_in_B = ps_not_br ? stgD_IR_in_A : stgD_IR_in_B;
    assign D_stall_in_B = ps_not_br ? D_regstall_in_A : stgD_rstall_in_B;
    assign DX_dcd_B[15:0] = D_IR_out_B; 
-   assign XbDaR1_dependence = XbDaR1_dependence_temp;
-   assign XbDaR2_dependence = XbDaR2_dependence_temp;
-   assign XbDaBr_dependence = XbDaBr_dependence_temp;
-   assign LTU_XbDa = LTU_XbDa_temp;
-   assign XaDaR1_dependence = XaDaR1_dependence_temp;
-   assign XaDaR2_dependence = XaDaR2_dependence_temp;
-   assign XaDaBr_dependence = XaDaBr_dependence_temp;
-   assign LTU_XaDa = LTU_XaDa_temp;
+   assign XD_R1DP_BA = XD_R1DP_BA_temp;
+   assign XD_R2DP_BA = XD_R2DP_BA_temp;
+   assign XD_BRDP_BA = XD_BRDP_BA_temp;
+   assign LTU_XD_AB = LTU_XD_AB_temp;
+   assign XD_R1DP_AA = XD_R1DP_AA_temp;
+   assign XD_R2DP_AA = XD_R2DP_AA_temp;
+   assign XD_BRDP_AA = XD_BRDP_AA_temp;
+   assign LTU_XD_AA = LTU_XD_AA_temp;
 
    wire [15:0] rs_data_B, rt_data_B, alu_out_B, F_pc_out_B, D_IR_in_B;
    wire [1:0]  D_stall_in_B, stgD_rstall_in_B, D_stall_out_B, DX_stall_B, XM_stall_B, MW_stallc_B;
@@ -309,197 +310,209 @@ module lc4_processor(input wire         clk,             // main clock
    reg  [15:0] AluBP_rs_B, AluBP_rt_B;
    wire ps_not_br;
    
-   wire LTU_XbDa, LTU_XaDa, LTU_XaDa_B;
-   wire XbDaR1_dependence, XbDaR2_dependence, XbDaBr_dependence;
-   wire XaDaR1_dependence, XaDaR2_dependence, XaDaBr_dependence;
-   wire XaDbR1_dependence, XaDbR2_dependence, XaDbBr_dependence;
+   wire LTU_XD_AB, LTU_XD_AA, LTU_XD_AA_B;
+   wire XD_R1DP_BA, XD_R2DP_BA, XD_BRDP_BA;
+   wire XD_R1DP_AA, XD_R2DP_AA, XD_BRDP_AA;
+   wire XD_R1DP_AB, XD_R2DP_AB, XD_BRDP_AB;
    wire loadToUse, LTU_B;
    wire pipe_switch, scl_stall_B;
 
-   reg XbDaR1_dependence_temp;
-   reg XbDaR2_dependence_temp;
-   reg XbDaBr_dependence_temp;
-   reg LTU_XbDa_temp;
-   reg XaDaR1_dependence_temp;
-   reg XaDaR2_dependence_temp;
-   reg XaDaBr_dependence_temp;
-   reg LTU_XaDa_temp;
-   reg DaDbR1_dependence;
-   reg DaDbR2_dependence;
-   reg DaDbBr_dependence;
-   reg DaDbMem_dependence;
-   reg decode_dependence;
-   reg XbDbR1_dependence;
-   reg XbDbR2_dependence;
-   reg XbDbBr_dependence;
-   reg LTU_B_XbDb;
+   reg XD_R1DP_BA_temp;
+   reg XD_R2DP_BA_temp;
+   reg XD_BRDP_BA_temp;
+   reg LTU_XD_AB_temp;
+   reg XD_R1DP_AA_temp;
+   reg XD_R2DP_AA_temp;
+   reg XD_BRDP_AA_temp;
+   reg LTU_XD_AA_temp;
+   reg DD_R1DP_AB;
+   reg DD_R2DP_AB;
+   reg DD_BRDP_AB;
+   reg DD_MEMDP_AB;
+   reg DCD_DP;
+   reg XD_R1DP_BB;
+   reg XD_R2DP_BB;
+   reg XD_BRDP_BB;
+   reg XD_LTUB_BB;
 
-    assign BP_B = 
-      ((MW_dcd_A_A[27:25] == MW_dcd_B[30:28]) &&                             
-      (MW_dcd_A_A[22] == 1) && (MW_dcd_B[18] == 1)) ? M_out_A :    
-      ((MW_dcd_B[18]) && (W_dcd_B[22]) && (MW_dcd_B[30:28] == W_dcd_B[27:25])) ? W_result_B:  
-      ((MW_dcd_B[18]) && (W_dcd_A[22]) && (MW_dcd_B[30:28] == W_dcd_A[27:25])) ? W_result_A:  
-       M_out_B_B;
+    always @* begin
+    if ((MW_dcd_A_A[27:25] == MW_dcd_B[30:28]) && (MW_dcd_A_A[22] == 1) && (MW_dcd_B[18] == 1)) begin
+        BP_B = M_out_A;
+    end else if ((MW_dcd_B[18]) && (W_dcd_B[22]) && (MW_dcd_B[30:28] == W_dcd_B[27:25])) begin
+        BP_B = W_result_B;
+    end else if ((MW_dcd_B[18]) && (W_dcd_A[22]) && (MW_dcd_B[30:28] == W_dcd_A[27:25])) begin
+        BP_B = W_result_A;
+    end else begin
+        BP_B = M_out_B_B;
+    end
+end
 
-    assign BP_A = 
-      ((MW_dcd_A_A[18]) && (W_dcd_B[22]) && (MW_dcd_A_A[30:28] == W_dcd_B[27:25])) ? W_result_B:  
-      ((MW_dcd_A_A[18]) && (W_dcd_A[22]) && (MW_dcd_A_A[30:28] == W_dcd_A[27:25])) ? W_result_A:
-      M_out_B_A;
+always @* begin
+    if ((MW_dcd_A_A[18]) && (W_dcd_B[22]) && (MW_dcd_A_A[30:28] == W_dcd_B[27:25])) begin
+        BP_A = W_result_B;
+    end else if ((MW_dcd_A_A[18]) && (W_dcd_A[22]) && (MW_dcd_A_A[30:28] == W_dcd_A[27:25])) begin
+        BP_A = W_result_A;
+    end else begin
+        BP_A = M_out_B_A;
+    end
+end
+
 
    always @(*) begin
     if ((DX_dcd_A[24]) && (XM_dcd_B[22]) && (DX_dcd_A[33:31] == XM_dcd_B[27:25]))
-        XbDaR1_dependence_temp = 1'b1;
+        XD_R1DP_BA_temp = 1'b1;
     else
-        XbDaR1_dependence_temp = 1'b0;
+        XD_R1DP_BA_temp = 1'b0;
     
     if ((DX_dcd_A[23]) && (XM_dcd_B[22]) && (DX_dcd_A[30:28] == XM_dcd_B[27:25]) && (~DX_dcd_A[18]))
-        XbDaR2_dependence_temp = 1'b1;
+        XD_R2DP_BA_temp = 1'b1;
     else
-        XbDaR2_dependence_temp = 1'b0;
+        XD_R2DP_BA_temp = 1'b0;
 
     if ((DX_dcd_A[15:12]==4'b0) && (DX_dcd_A[15:0] != 16'b0) && (XM_dcd_B[21] == 1))
-        XbDaBr_dependence_temp = 1'b1;
+        XD_BRDP_BA_temp = 1'b1;
     else
-        XbDaBr_dependence_temp = 1'b0;
+        XD_BRDP_BA_temp = 1'b0;
 
-    if (XM_dcd_B[19] && (XbDaR1_dependence_temp || XbDaR2_dependence_temp || XbDaBr_dependence_temp) && ~branch_taken)
-        LTU_XbDa_temp = 1'b1;
+    if (XM_dcd_B[19] && (XD_R1DP_BA_temp || XD_R2DP_BA_temp || XD_BRDP_BA_temp) && ~branch_taken)
+        LTU_XD_AB_temp = 1'b1;
     else
-        LTU_XbDa_temp = 1'b0;
+        LTU_XD_AB_temp = 1'b0;
 
     if ((DX_dcd_A[24]) && (XM_dcd_A[22]) && (DX_dcd_A[33:31] == XM_dcd_A[27:25]))
-        XaDaR1_dependence_temp = 1'b1;
+        XD_R1DP_AA_temp = 1'b1;
     else
-        XaDaR1_dependence_temp = 1'b0;
+        XD_R1DP_AA_temp = 1'b0;
 
     if ((DX_dcd_A[23]) && (XM_dcd_A[22]) && (DX_dcd_A[30:28] == XM_dcd_A[27:25]) && (~DX_dcd_A[18]))
-        XaDaR2_dependence_temp = 1'b1;
+        XD_R2DP_AA_temp = 1'b1;
     else
-        XaDaR2_dependence_temp = 1'b0;
+        XD_R2DP_AA_temp = 1'b0;
 
     if ((DX_dcd_A[15:12]==4'b0) && (DX_dcd_A[15:0] != 16'b0) && (XM_dcd_A[21] == 1))
-        XaDaBr_dependence_temp = 1'b1;
+        XD_BRDP_AA_temp = 1'b1;
     else
-        XaDaBr_dependence_temp = 1'b0;
+        XD_BRDP_AA_temp = 1'b0;
 
-    if (XM_dcd_A[19] && ((XaDaR1_dependence_temp && ~XbDaR1_dependence_temp) || (XaDaR2_dependence_temp && ~XbDaR2_dependence_temp) || (XaDaBr_dependence_temp && ~XbDaBr_dependence_temp)) && ~branch_taken)
-        LTU_XaDa_temp = 1'b1;
+    if (XM_dcd_A[19] && ((XD_R1DP_AA_temp && ~XD_R1DP_BA_temp) || (XD_R2DP_AA_temp && ~XD_R2DP_BA_temp) || (XD_BRDP_AA_temp && ~XD_BRDP_BA_temp)) && ~branch_taken)
+        LTU_XD_AA_temp = 1'b1;
     else
-    LTU_XaDa_temp = 1'b0;
+    LTU_XD_AA_temp = 1'b0;
     end
       
     always @(*) begin
     if ((DX_dcd_A[27:25] == DX_dcd_B[33:31]) && DX_dcd_A[22] == 1 && DX_dcd_B[24] == 1)
-        DaDbR1_dependence = 1;
+        DD_R1DP_AB = 1;
     else
-        DaDbR1_dependence = 0;
+        DD_R1DP_AB = 0;
     
     if ((DX_dcd_A[27:25] == DX_dcd_B[30:28]) && DX_dcd_A[22] == 1 && DX_dcd_B[23] == 1 && DX_dcd_B[18] == 0)
-        DaDbR2_dependence = 1;
+        DD_R2DP_AB = 1;
     else
-        DaDbR2_dependence = 0;
+        DD_R2DP_AB = 0;
     
     if ((DX_dcd_B[15:12] == 4'b0) && (DX_dcd_B[15:0] != 16'b0) && (DX_dcd_A[21] == 1))
-        DaDbBr_dependence = 1;
+        DD_BRDP_AB = 1;
     else
-        DaDbBr_dependence = 0;
+        DD_BRDP_AB = 0;
     
     if ((DX_dcd_A[18] | DX_dcd_A[19]) && (DX_dcd_B[18] | DX_dcd_B[19]))
-        DaDbMem_dependence = 1;
+        DD_MEMDP_AB = 1;
     else
-        DaDbMem_dependence = 0;
+        DD_MEMDP_AB = 0;
     
-    if ((~LTU_XbDa && ~LTU_XaDa) && (DaDbR1_dependence || DaDbR2_dependence || DaDbBr_dependence || DaDbMem_dependence) && ~branch_taken)
-        decode_dependence = 1;
+    if ((~LTU_XD_AB && ~LTU_XD_AA) && (DD_R1DP_AB || DD_R2DP_AB || DD_BRDP_AB || DD_MEMDP_AB) && ~branch_taken)
+        DCD_DP = 1;
     else
-        decode_dependence = 0;
+        DCD_DP = 0;
 
     if ((DX_dcd_B[24]) && (XM_dcd_B[22]) && (DX_dcd_B[33:31] == XM_dcd_B[27:25]))
-        XbDbR1_dependence = 1;
+        XD_R1DP_BB = 1;
     else
-        XbDbR1_dependence = 0;
+        XD_R1DP_BB = 0;
 
     if ((DX_dcd_B[23]) && (XM_dcd_B[22]) && (DX_dcd_B[30:28] == XM_dcd_B[27:25]) && (~DX_dcd_B[18]))
-        XbDbR2_dependence = 1;
+        XD_R2DP_BB = 1;
     else
-        XbDbR2_dependence = 0;
+        XD_R2DP_BB = 0;
 
     if (DX_dcd_B[15:12] == 4'b0 && (DX_dcd_B[15:0] != 16'b0) && (XM_dcd_B[21] == 1))
-        XbDbBr_dependence = 1;
+        XD_BRDP_BB = 1;
     else
-        XbDbBr_dependence = 0;
+        XD_BRDP_BB = 0;
 
-    if (~LTU_XbDa && ~LTU_XaDa && ~decode_dependence && XM_dcd_B[19] && (XbDbR1_dependence && ~DaDbR1_dependence || XbDbR2_dependence && ~DaDbR2_dependence || XbDbBr_dependence && ~DaDbBr_dependence) && ~branch_taken)
-        LTU_B_XbDb = 1;
+    if (~LTU_XD_AB && ~LTU_XD_AA && ~DCD_DP && XM_dcd_B[19] && (XD_R1DP_BB && ~DD_R1DP_AB || XD_R2DP_BB && ~DD_R2DP_AB || XD_BRDP_BB && ~DD_BRDP_AB) && ~branch_taken)
+        XD_LTUB_BB = 1;
     else
-        LTU_B_XbDb = 0;
+        XD_LTUB_BB = 0;
     end
 
-   function reg XaDbR1_dependence_func;
+   function reg XD_R1DP_AB_func;
    input [33:0] DX_dcd_B;
    input [27:0] XM_dcd_A;
    begin
       if ((DX_dcd_B[24]) && (XM_dcd_A[22]) && (DX_dcd_B[33:31] == XM_dcd_A[27:25]))
-         XaDbR1_dependence_func = 1;
+         XD_R1DP_AB_func = 1;
       else
-         XaDbR1_dependence_func = 0;
+         XD_R1DP_AB_func = 0;
    end
    endfunction
 
-   function reg XaDbR2_dependence_func;
+   function reg XD_R2DP_AB_func;
    input [33:0] DX_dcd_B;
    input [27:0] XM_dcd_A;
    begin
       if ((DX_dcd_B[23]) && (XM_dcd_A[22]) && (DX_dcd_B[30:28] == XM_dcd_A[27:25]) && (~DX_dcd_B[18]))
-         XaDbR2_dependence_func = 1;
+         XD_R2DP_AB_func = 1;
       else
-         XaDbR2_dependence_func = 0;
+         XD_R2DP_AB_func = 0;
    end
    endfunction
 
-   function reg XaDbBr_dependence_func;
+   function reg XD_BRDP_AB_func;
    input [33:0] DX_dcd_B;
    input [27:0] XM_dcd_A;
    begin
       if ((DX_dcd_B[15:12]==4'b0) && (DX_dcd_B[15:0] != 16'b0) && (XM_dcd_A[21] == 1))
-         XaDbBr_dependence_func = 1;
+         XD_BRDP_AB_func = 1;
       else
-         XaDbBr_dependence_func = 0;
+         XD_BRDP_AB_func = 0;
    end
    endfunction
 
-   assign XaDbR1_dependence = XaDbR1_dependence_func(DX_dcd_B, XM_dcd_A);
-   assign XaDbR2_dependence = XaDbR2_dependence_func(DX_dcd_B, XM_dcd_A);
-   assign XaDbBr_dependence = XaDbBr_dependence_func(DX_dcd_B, XM_dcd_A);
+   assign XD_R1DP_AB = XD_R1DP_AB_func(DX_dcd_B, XM_dcd_A);
+   assign XD_R2DP_AB = XD_R2DP_AB_func(DX_dcd_B, XM_dcd_A);
+   assign XD_BRDP_AB = XD_BRDP_AB_func(DX_dcd_B, XM_dcd_A);
 
-   reg LTU_XaDa_B_cond1, LTU_XaDa_B_cond2, LTU_XaDa_B_cond3;
+   reg LTU_XD_AA_B_cond1, LTU_XD_AA_B_cond2, LTU_XD_AA_B_cond3;
 
    always @(*) begin
-   if (~LTU_XbDa && ~LTU_XaDa && ~decode_dependence)
-      LTU_XaDa_B_cond1 = 1;
+   if (~LTU_XD_AB && ~LTU_XD_AA && ~DCD_DP)
+      LTU_XD_AA_B_cond1 = 1;
    else
-      LTU_XaDa_B_cond1 = 0;
+      LTU_XD_AA_B_cond1 = 0;
     end
 
    always @(*) begin
-   if (XM_dcd_A[19] && (XaDbR1_dependence || XaDbR2_dependence || XaDbBr_dependence))
-      LTU_XaDa_B_cond2 = 1;
+   if (XM_dcd_A[19] && (XD_R1DP_AB || XD_R2DP_AB || XD_BRDP_AB))
+      LTU_XD_AA_B_cond2 = 1;
    else
-      LTU_XaDa_B_cond2 = 0;
+      LTU_XD_AA_B_cond2 = 0;
    end
 
    always @(*) begin
-   if (~XbDbR1_dependence && ~XbDbR2_dependence && ~DaDbR1_dependence && ~XbDbBr_dependence && ~DaDbBr_dependence)
-      LTU_XaDa_B_cond3 = 1;
+   if (~XD_R1DP_BB && ~XD_R2DP_BB && ~DD_R1DP_AB && ~XD_BRDP_BB && ~DD_BRDP_AB)
+      LTU_XD_AA_B_cond3 = 1;
    else
-      LTU_XaDa_B_cond3 = 0;
+      LTU_XD_AA_B_cond3 = 0;
    end
+   
    //branch
    wire branch_taken;
-   assign LTU_XaDa_B = LTU_XaDa_B_cond1 && LTU_XaDa_B_cond2 && LTU_XaDa_B_cond3 && ~branch_taken;
+   assign LTU_XD_AA_B = LTU_XD_AA_B_cond1 && LTU_XD_AA_B_cond2 && LTU_XD_AA_B_cond3 && ~branch_taken;
    wire loadToUse_XaDa_LTU, loadToUse_XbDa_LTU;
-   assign loadToUse_XaDa_LTU = LTU_XaDa;
-   assign loadToUse_XbDa_LTU = LTU_XbDa;
+   assign loadToUse_XaDa_LTU = LTU_XD_AA;
+   assign loadToUse_XbDa_LTU = LTU_XD_AB;
    wire branch_taken_X_br_toc_A, branch_taken_X_br_toc_B;
    assign branch_taken_X_br_toc_A = X_br_toc_A;
    assign branch_taken_X_br_toc_B = X_br_toc_B;
@@ -515,9 +528,9 @@ module lc4_processor(input wire         clk,             // main clock
 
    wire [33:0] X_IR_zero_A = {34{1'b0}};
    assign X_IR_in_A = (branch_taken | loadToUse) ? X_IR_zero_A : DX_dcd_A;
-   assign LTU_B = LTU_XaDa_B | LTU_B_XbDb;
-   assign scl_stall_B = loadToUse | decode_dependence;
-   assign pipe_switch = decode_dependence | LTU_B;
+   assign LTU_B = LTU_XD_AA_B | XD_LTUB_BB;
+   assign scl_stall_B = loadToUse | DCD_DP;
+   assign pipe_switch = DCD_DP | LTU_B;
    
    reg [1:0] stgD_rstall_in_B_reg;
    reg [1:0] DX_stall_B_reg;
@@ -594,8 +607,8 @@ module lc4_processor(input wire         clk,             // main clock
         AluBP_rt_B = X_rt_data_B;
     end
 
-
    wire [15:0] M_in_B_sel, W_rNZP_in_B_sel, W_result_B_sel, W_rDmemData_in_B_sel, dmem_addr_B_sel;
+ 
    //nzp
    assign M_in_B_sel = (XM_dcd_B[16] == 1) ? DX_pc_A : alu_out_B;
    assign W_rNZP_in_B_sel = (MW_dcd_B[19] == 1) ? nzp_new_bs_ld_B : MW_nzp_bits_B;
