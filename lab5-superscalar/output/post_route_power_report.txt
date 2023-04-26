@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Thu Apr 20 20:41:10 2023
-| Host             : big13.seas.upenn.edu running 64-bit openSUSE Leap 15.4
+| Date             : Tue Apr 25 20:50:00 2023
+| Host             : big21.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command          : report_power -file ./output/post_route_power_report.txt
 | Design           : lc4_system
 | Device           : xc7z020clg484-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.263        |
+| Total On-Chip Power (W)  | 0.256        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.152        |
+| Dynamic (W)              | 0.146        |
 | Device Static (W)        | 0.110        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 82.0         |
@@ -53,20 +53,20 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.002 |        7 |       --- |             --- |
-| Slice Logic             |     0.004 |     4850 |       --- |             --- |
-|   LUT as Logic          |     0.003 |     3058 |     53200 |            5.75 |
+| Slice Logic             |     0.002 |     4748 |       --- |             --- |
+|   LUT as Logic          |     0.002 |     2935 |     53200 |            5.52 |
 |   CARRY4                |    <0.001 |      246 |     13300 |            1.85 |
 |   Register              |    <0.001 |      680 |    106400 |            0.64 |
-|   F7/F8 Muxes           |    <0.001 |       66 |     53200 |            0.12 |
+|   F7/F8 Muxes           |    <0.001 |       65 |     53200 |            0.12 |
 |   LUT as Shift Register |    <0.001 |        2 |     17400 |            0.01 |
-|   Others                |     0.000 |      152 |       --- |             --- |
-| Signals                 |     0.004 |     3440 |       --- |             --- |
-| Block RAM               |     0.019 |     39.5 |       140 |           28.21 |
+|   Others                |     0.000 |      153 |       --- |             --- |
+| Signals                 |     0.003 |     3334 |       --- |             --- |
+| Block RAM               |     0.015 |     39.5 |       140 |           28.21 |
 | MMCM                    |     0.122 |        1 |         4 |           25.00 |
 | DSPs                    |    <0.001 |        2 |       220 |            0.91 |
 | I/O                     |     0.001 |       29 |       200 |           14.50 |
 | Static Power            |     0.110 |          |           |                 |
-| Total                   |     0.263 |          |           |                 |
+| Total                   |     0.256 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.036 |       0.028 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.030 |       0.022 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.078 |       0.068 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -85,7 +85,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.004 |       0.002 |      0.002 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.003 |       0.001 |      0.002 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -140,7 +140,7 @@ Table of Contents
 | Clock                              | Domain                                   | Constraint (ns) |
 +------------------------------------+------------------------------------------+-----------------+
 | CLOCK_100MHz                       | CLOCK_100MHz                             |            10.0 |
-| clk_processor_design_1_clk_wiz_0_0 | mmcm0/clk_processor_design_1_clk_wiz_0_0 |            57.2 |
+| clk_processor_design_1_clk_wiz_0_0 | mmcm0/clk_processor_design_1_clk_wiz_0_0 |            75.2 |
 | clk_vga_design_1_clk_wiz_0_0       | mmcm0/clk_vga_design_1_clk_wiz_0_0       |            40.0 |
 | clk_vga_inv_design_1_clk_wiz_0_0   | mmcm0/clk_vga_inv_design_1_clk_wiz_0_0   |            40.0 |
 | clkfbout_design_1_clk_wiz_0_0      | mmcm0/clkfbout_design_1_clk_wiz_0_0      |            10.0 |
@@ -156,16 +156,11 @@ Table of Contents
 +-------------+-----------+
 | Name        | Power (W) |
 +-------------+-----------+
-| lc4_system  |     0.152 |
-|   memory    |     0.020 |
-|     memory  |     0.020 |
+| lc4_system  |     0.146 |
+|   memory    |     0.016 |
+|     memory  |     0.016 |
 |   mmcm0     |     0.123 |
-|   proc_inst |     0.008 |
-|     M_IR_A  |     0.002 |
-|     aluA    |     0.001 |
-|       div1  |     0.001 |
-|     aluB    |     0.001 |
-|       div1  |     0.001 |
+|   proc_inst |     0.005 |
 +-------------+-----------+
 
 
