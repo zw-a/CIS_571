@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Tue Apr 25 20:50:02 2023
+| Date         : Tue Apr 25 21:03:41 2023
 | Host         : big21.seas.upenn.edu running 64-bit openSUSE Leap 15.4
 | Command      : report_timing_summary -file ./output/post_route_timing_summary_report.txt
 | Design       : lc4_system
@@ -128,10 +128,10 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -0.737      -18.567                     31                 2784        0.131        0.000                      0                 2784        3.000        0.000                       0                   772  
+      0.497        0.000                      0                 2784        0.143        0.000                      0                 2784        3.000        0.000                       0                   772  
 
 
-Timing constraints are not met.
+All user specified timing constraints are met.
 
 
 ------------------------------------------------------------------------------------------------
@@ -142,7 +142,7 @@ Timing constraints are not met.
 Clock                                 Waveform(ns)       Period(ns)      Frequency(MHz)
 -----                                 ------------       ----------      --------------
 CLOCK_100MHz                          {0.000 5.000}      10.000          100.000         
-  clk_processor_design_1_clk_wiz_0_0  {0.000 37.625}     75.250          13.289          
+  clk_processor_design_1_clk_wiz_0_0  {0.000 39.125}     78.250          12.780          
   clk_vga_design_1_clk_wiz_0_0        {0.000 20.000}     40.000          25.000          
   clk_vga_inv_design_1_clk_wiz_0_0    {20.000 40.000}    40.000          25.000          
   clkfbout_design_1_clk_wiz_0_0       {0.000 5.000}      10.000          100.000         
@@ -156,9 +156,9 @@ CLOCK_100MHz                          {0.000 5.000}      10.000          100.000
 Clock                                     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----                                     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 CLOCK_100MHz                                                                                                                                                                            3.000        0.000                       0                     1  
-  clk_processor_design_1_clk_wiz_0_0       -0.737      -18.567                     31                 2598        0.131        0.000                      0                 2598       37.125        0.000                       0                   714  
+  clk_processor_design_1_clk_wiz_0_0        0.497        0.000                      0                 2598        0.143        0.000                      0                 2598       38.625        0.000                       0                   714  
   clk_vga_design_1_clk_wiz_0_0                                                                                                                                                         37.424        0.000                       0                    10  
-  clk_vga_inv_design_1_clk_wiz_0_0         35.734        0.000                      0                   62        0.185        0.000                      0                   62       19.020        0.000                       0                    44  
+  clk_vga_inv_design_1_clk_wiz_0_0         35.743        0.000                      0                   62        0.180        0.000                      0                   62       19.020        0.000                       0                    44  
   clkfbout_design_1_clk_wiz_0_0                                                                                                                                                         7.845        0.000                       0                     3  
 
 
@@ -169,8 +169,8 @@ CLOCK_100MHz                                                                    
 
 From Clock                        To Clock                              WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
 ----------                        --------                              -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-clk_vga_inv_design_1_clk_wiz_0_0  clk_vga_design_1_clk_wiz_0_0           14.335        0.000                      0                  112       19.768        0.000                      0                  112  
-clk_vga_design_1_clk_wiz_0_0      clk_vga_inv_design_1_clk_wiz_0_0       15.430        0.000                      0                   12       20.280        0.000                      0                   12  
+clk_vga_inv_design_1_clk_wiz_0_0  clk_vga_design_1_clk_wiz_0_0           15.144        0.000                      0                  112       19.770        0.000                      0                  112  
+clk_vga_design_1_clk_wiz_0_0      clk_vga_inv_design_1_clk_wiz_0_0       15.647        0.000                      0                   12       20.280        0.000                      0                   12  
 
 
 ------------------------------------------------------------------------------------------------
@@ -217,31 +217,31 @@ High Pulse Width  Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000 
 From Clock:  clk_processor_design_1_clk_wiz_0_0
   To Clock:  clk_processor_design_1_clk_wiz_0_0
 
-Setup :           31  Failing Endpoints,  Worst Slack       -0.737ns,  Total Violation      -18.567ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.131ns,  Total Violation        0.000ns
-PW    :            0  Failing Endpoints,  Worst Slack       37.125ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.497ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.143ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack       38.625ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.737ns  (required time - arrival time)
-  Source:                 proc_inst/M_IR_B/state_reg[26]/C
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@37.625ns period=75.250ns})
-  Destination:            proc_inst/X_IR_B/state_reg[28]/R
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@37.625ns period=75.250ns})
+Slack (MET) :             0.497ns  (required time - arrival time)
+  Source:                 proc_inst/W_rIR_B/state_reg[26]/C
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@39.125ns period=78.250ns})
+  Destination:            proc_inst/F_PC/state_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@39.125ns period=78.250ns})
   Path Group:             clk_processor_design_1_clk_wiz_0_0
   Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            75.250ns  (clk_processor_design_1_clk_wiz_0_0 rise@75.250ns - clk_processor_design_1_clk_wiz_0_0 rise@0.000ns)
-  Data Path Delay:        75.338ns  (logic 32.729ns (43.443%)  route 42.609ns (56.557%))
-  Logic Levels:           116  (CARRY4=66 LUT1=1 LUT2=1 LUT3=17 LUT4=17 LUT5=2 LUT6=12)
-  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.426ns = ( 73.824 - 75.250 ) 
-    Source Clock Delay      (SCD):    -0.787ns
-    Clock Pessimism Removal (CPR):    0.616ns
-  Clock Uncertainty:      0.101ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Requirement:            78.250ns  (clk_processor_design_1_clk_wiz_0_0 rise@78.250ns - clk_processor_design_1_clk_wiz_0_0 rise@0.000ns)
+  Data Path Delay:        77.531ns  (logic 34.242ns (44.165%)  route 43.289ns (55.835%))
+  Logic Levels:           122  (CARRY4=70 LUT1=1 LUT2=3 LUT3=18 LUT4=18 LUT5=2 LUT6=10)
+  Clock Path Skew:        -0.149ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.510ns = ( 76.740 - 78.250 ) 
+    Source Clock Delay      (SCD):    -0.785ns
+    Clock Pessimism Removal (CPR):    0.577ns
+  Clock Uncertainty:      0.102ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.189ns
+    Discrete Jitter          (DJ):    0.191ns
     Phase Error              (PE):    0.000ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -256,332 +256,348 @@ Slack (VIOLATED) :        -0.737ns  (required time - arrival time)
                                                      -7.343    -4.568 r  mmcm0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.855    -2.713    mmcm0/clk_processor_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101    -2.612 r  mmcm0/clkout1_buf/O
-                         net (fo=712, routed)         1.825    -0.787    proc_inst/M_IR_B/clk_processor
-    SLICE_X4Y17          FDRE                                         r  proc_inst/M_IR_B/state_reg[26]/C
+                         net (fo=712, routed)         1.827    -0.785    proc_inst/W_rIR_B/clk_processor
+    SLICE_X3Y16          FDRE                                         r  proc_inst/W_rIR_B/state_reg[26]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y17          FDRE (Prop_fdre_C_Q)         0.518    -0.269 r  proc_inst/M_IR_B/state_reg[26]/Q
-                         net (fo=5, routed)           1.045     0.776    proc_inst/M_IR_B/p_0_in9_in[1]
-    SLICE_X4Y17          LUT4 (Prop_lut4_I2_O)        0.124     0.900 f  proc_inst/M_IR_B/mul_i_102/O
-                         net (fo=4, routed)           1.009     1.909    proc_inst/W_rIR_B/mul_i_84_0
-    SLICE_X4Y13          LUT6 (Prop_lut6_I2_O)        0.124     2.033 r  proc_inst/W_rIR_B/mul_i_90/O
-                         net (fo=23, routed)          1.011     3.044    proc_inst/W_rIR_B/mul_i_90_n_0
-    SLICE_X9Y11          LUT6 (Prop_lut6_I0_O)        0.124     3.168 r  proc_inst/W_rIR_B/mul_i_67/O
-                         net (fo=3, routed)           0.630     3.798    proc_inst/W_rIR_B/mul_i_67_n_0
-    SLICE_X13Y9          LUT5 (Prop_lut5_I0_O)        0.124     3.922 r  proc_inst/W_rIR_B/mul_i_17/O
-                         net (fo=51, routed)          0.822     4.743    proc_inst/X_IR_A/state_reg[12]_i_55_0
-    SLICE_X14Y9          LUT3 (Prop_lut3_I2_O)        0.124     4.867 r  proc_inst/X_IR_A/comp_out_carry_i_5/O
-                         net (fo=1, routed)           0.000     4.867    proc_inst/aluA/div1/d0/S[0]
-    SLICE_X14Y9          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.513     5.380 r  proc_inst/aluA/div1/d0/comp_out_carry/CO[3]
-                         net (fo=1, routed)           0.000     5.380    proc_inst/aluA/div1/d0/comp_out_carry_n_0
-    SLICE_X14Y10         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.497 r  proc_inst/aluA/div1/d0/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          1.207     6.704    proc_inst/X_IR_A/o_remainder_carry_i_1_0[0]
-    SLICE_X22Y8          LUT3 (Prop_lut3_I1_O)        0.124     6.828 r  proc_inst/X_IR_A/o_remainder_carry_i_9/O
-                         net (fo=1, routed)           0.000     6.828    proc_inst/X_IR_A/o_remainder_carry_i_9_n_0
-    SLICE_X22Y8          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.513     7.341 r  proc_inst/X_IR_A/o_remainder_carry_i_1/CO[3]
-                         net (fo=1, routed)           0.000     7.341    proc_inst/X_IR_A/o_remainder_carry_i_1_n_0
-    SLICE_X22Y9          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.315     7.656 r  proc_inst/X_IR_A/o_remainder_carry__0_i_1/O[3]
-                         net (fo=4, routed)           1.052     8.708    proc_inst/X_IR_A/o_remainder_carry__2_i_7_0[7]
-    SLICE_X24Y10         LUT4 (Prop_lut4_I3_O)        0.307     9.015 r  proc_inst/X_IR_A/comp_out_carry__0_i_8/O
-                         net (fo=1, routed)           0.000     9.015    proc_inst/aluA/div1/d1/o_remainder_carry__2_i_2_0[0]
-    SLICE_X24Y10         CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     9.547 r  proc_inst/aluA/div1/d1/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.856    10.404    proc_inst/X_IR_A/o_remainder_carry__2[0]
-    SLICE_X25Y8          LUT3 (Prop_lut3_I1_O)        0.124    10.528 r  proc_inst/X_IR_A/o_remainder_carry_i_4/O
-                         net (fo=1, routed)           0.000    10.528    proc_inst/aluA/div1/d1/comp_out_carry_i_4__1[1]
-    SLICE_X25Y8          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    11.078 r  proc_inst/aluA/div1/d1/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    11.078    proc_inst/aluA/div1/d1/o_remainder_carry_n_0
-    SLICE_X25Y9          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.192 r  proc_inst/aluA/div1/d1/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    11.192    proc_inst/aluA/div1/d1/o_remainder_carry__0_n_0
-    SLICE_X25Y10         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    11.431 r  proc_inst/aluA/div1/d1/o_remainder_carry__1/O[2]
-                         net (fo=4, routed)           0.824    12.255    proc_inst/aluA/div1/d1/o_remainder_carry__1_i_5[2]
-    SLICE_X26Y12         LUT4 (Prop_lut4_I0_O)        0.302    12.557 r  proc_inst/aluA/div1/d1/comp_out_carry__0_i_7__0/O
-                         net (fo=1, routed)           0.000    12.557    proc_inst/aluA/div1/d2/o_remainder_carry_i_4__0_0[1]
-    SLICE_X26Y12         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533    13.090 r  proc_inst/aluA/div1/d2/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          1.119    14.209    proc_inst/aluA/div1/d1/CO[0]
-    SLICE_X29Y9          LUT3 (Prop_lut3_I1_O)        0.124    14.333 r  proc_inst/aluA/div1/d1/o_remainder_carry_i_3__0/O
-                         net (fo=1, routed)           0.000    14.333    proc_inst/aluA/div1/d2/comp_out_carry_i_4__2[1]
-    SLICE_X29Y9          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    14.883 r  proc_inst/aluA/div1/d2/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    14.883    proc_inst/aluA/div1/d2/o_remainder_carry_n_0
-    SLICE_X29Y10         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    14.997 r  proc_inst/aluA/div1/d2/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    14.997    proc_inst/aluA/div1/d2/o_remainder_carry__0_n_0
-    SLICE_X29Y11         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    15.111 r  proc_inst/aluA/div1/d2/o_remainder_carry__1/CO[3]
-                         net (fo=1, routed)           0.000    15.111    proc_inst/aluA/div1/d2/o_remainder_carry__1_n_0
-    SLICE_X29Y12         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    15.350 r  proc_inst/aluA/div1/d2/o_remainder_carry__2/O[2]
-                         net (fo=2, routed)           0.915    16.265    proc_inst/aluA/div1/d2/next_r3[2]
-    SLICE_X26Y9          LUT4 (Prop_lut4_I0_O)        0.302    16.567 r  proc_inst/aluA/div1/d2/comp_out_carry__0_i_5__1/O
-                         net (fo=1, routed)           0.000    16.567    proc_inst/aluA/div1/d3/o_remainder_carry_i_4__1_0[3]
-    SLICE_X26Y9          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.376    16.943 r  proc_inst/aluA/div1/d3/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.974    17.917    proc_inst/aluA/div1/d2/o_remainder_carry__2_0[0]
-    SLICE_X27Y7          LUT3 (Prop_lut3_I1_O)        0.124    18.041 r  proc_inst/aluA/div1/d2/o_remainder_carry_i_3__1/O
-                         net (fo=1, routed)           0.000    18.041    proc_inst/aluA/div1/d3/comp_out_carry_i_4__3[1]
+    SLICE_X3Y16          FDRE (Prop_fdre_C_Q)         0.456    -0.329 r  proc_inst/W_rIR_B/state_reg[26]/Q
+                         net (fo=14, routed)          0.905     0.576    proc_inst/W_rIR_B/state_reg[26]_0
+    SLICE_X2Y16          LUT4 (Prop_lut4_I2_O)        0.124     0.700 f  proc_inst/W_rIR_B/mul_i_101/O
+                         net (fo=2, routed)           0.665     1.365    proc_inst/W_rIR_B/mul_i_101_n_0
+    SLICE_X4Y16          LUT4 (Prop_lut4_I0_O)        0.150     1.515 f  proc_inst/W_rIR_B/mul_i_93/O
+                         net (fo=16, routed)          1.404     2.920    proc_inst/W_rIR_B/state_reg[22]_1
+    SLICE_X10Y8          LUT3 (Prop_lut3_I0_O)        0.348     3.268 r  proc_inst/W_rIR_B/mul_i_68/O
+                         net (fo=25, routed)          0.873     4.141    proc_inst/W_rIR_B/mul_i_68_n_0
+    SLICE_X11Y7          LUT5 (Prop_lut5_I1_O)        0.124     4.265 r  proc_inst/W_rIR_B/mul_i_17/O
+                         net (fo=51, routed)          0.913     5.178    proc_inst/X_IR_A/state_reg[12]_i_55_0
+    SLICE_X12Y9          LUT3 (Prop_lut3_I2_O)        0.124     5.302 r  proc_inst/X_IR_A/comp_out_carry_i_5/O
+                         net (fo=1, routed)           0.000     5.302    proc_inst/aluA/div1/d0/S[0]
+    SLICE_X12Y9          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513     5.815 r  proc_inst/aluA/div1/d0/comp_out_carry/CO[3]
+                         net (fo=1, routed)           0.000     5.815    proc_inst/aluA/div1/d0/comp_out_carry_n_0
+    SLICE_X12Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.932 f  proc_inst/aluA/div1/d0/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          1.272     7.204    proc_inst/X_IR_A/o_remainder_carry_i_1_0[0]
+    SLICE_X20Y7          LUT2 (Prop_lut2_I1_O)        0.124     7.328 r  proc_inst/X_IR_A/o_remainder_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.328    proc_inst/X_IR_A/aluA/div1/d0/p_0_in[5]
+    SLICE_X20Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     7.861 r  proc_inst/X_IR_A/o_remainder_carry__0_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.861    proc_inst/X_IR_A/o_remainder_carry__0_i_1_n_0
+    SLICE_X20Y8          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     8.184 r  proc_inst/X_IR_A/o_remainder_carry__1_i_1/O[1]
+                         net (fo=4, routed)           0.612     8.796    proc_inst/X_IR_A/o_remainder_carry__2_i_7_0[9]
+    SLICE_X22Y8          LUT4 (Prop_lut4_I3_O)        0.306     9.102 r  proc_inst/X_IR_A/comp_out_carry__0_i_7/O
+                         net (fo=1, routed)           0.000     9.102    proc_inst/aluA/div1/d1/o_remainder_carry__2_i_2_0[1]
+    SLICE_X22Y8          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     9.635 r  proc_inst/aluA/div1/d1/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.934    10.569    proc_inst/X_IR_A/o_remainder_carry__2[0]
+    SLICE_X21Y7          LUT3 (Prop_lut3_I1_O)        0.124    10.693 r  proc_inst/X_IR_A/o_remainder_carry_i_5/O
+                         net (fo=1, routed)           0.000    10.693    proc_inst/aluA/div1/d1/comp_out_carry_i_4__1[0]
+    SLICE_X21Y7          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    11.225 r  proc_inst/aluA/div1/d1/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.225    proc_inst/aluA/div1/d1/o_remainder_carry_n_0
+    SLICE_X21Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.339 r  proc_inst/aluA/div1/d1/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.339    proc_inst/aluA/div1/d1/o_remainder_carry__0_n_0
+    SLICE_X21Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.453 r  proc_inst/aluA/div1/d1/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.453    proc_inst/aluA/div1/d1/o_remainder_carry__1_n_0
+    SLICE_X21Y10         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    11.692 r  proc_inst/aluA/div1/d1/o_remainder_carry__2/O[2]
+                         net (fo=2, routed)           0.993    12.685    proc_inst/aluA/div1/d1/next_r2[2]
+    SLICE_X22Y10         LUT4 (Prop_lut4_I0_O)        0.302    12.987 r  proc_inst/aluA/div1/d1/comp_out_carry__0_i_5__0/O
+                         net (fo=1, routed)           0.000    12.987    proc_inst/aluA/div1/d2/o_remainder_carry_i_4__0_0[3]
+    SLICE_X22Y10         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376    13.363 r  proc_inst/aluA/div1/d2/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          1.001    14.364    proc_inst/aluA/div1/d1/CO[0]
+    SLICE_X23Y8          LUT3 (Prop_lut3_I1_O)        0.124    14.488 r  proc_inst/aluA/div1/d1/o_remainder_carry__0_i_3__0/O
+                         net (fo=1, routed)           0.000    14.488    proc_inst/aluA/div1/d2/comp_out_carry_i_2__1_0[1]
+    SLICE_X23Y8          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    15.038 r  proc_inst/aluA/div1/d2/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    15.038    proc_inst/aluA/div1/d2/o_remainder_carry__0_n_0
+    SLICE_X23Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.152 r  proc_inst/aluA/div1/d2/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    15.152    proc_inst/aluA/div1/d2/o_remainder_carry__1_n_0
+    SLICE_X23Y10         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    15.391 r  proc_inst/aluA/div1/d2/o_remainder_carry__2/O[2]
+                         net (fo=2, routed)           0.920    16.311    proc_inst/aluA/div1/d2/next_r3[2]
+    SLICE_X24Y9          LUT4 (Prop_lut4_I0_O)        0.302    16.613 r  proc_inst/aluA/div1/d2/comp_out_carry__0_i_5__1/O
+                         net (fo=1, routed)           0.000    16.613    proc_inst/aluA/div1/d3/o_remainder_carry_i_4__1_0[3]
+    SLICE_X24Y9          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    17.014 r  proc_inst/aluA/div1/d3/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.866    17.880    proc_inst/aluA/div1/d2/o_remainder_carry__2_0[0]
+    SLICE_X25Y7          LUT3 (Prop_lut3_I1_O)        0.124    18.004 r  proc_inst/aluA/div1/d2/o_remainder_carry_i_3__1/O
+                         net (fo=1, routed)           0.000    18.004    proc_inst/aluA/div1/d3/comp_out_carry_i_4__3[1]
+    SLICE_X25Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    18.554 r  proc_inst/aluA/div1/d3/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    18.554    proc_inst/aluA/div1/d3/o_remainder_carry_n_0
+    SLICE_X25Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    18.668 r  proc_inst/aluA/div1/d3/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    18.668    proc_inst/aluA/div1/d3/o_remainder_carry__0_n_0
+    SLICE_X25Y9          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    19.002 r  proc_inst/aluA/div1/d3/o_remainder_carry__1/O[1]
+                         net (fo=4, routed)           0.807    19.809    proc_inst/aluA/div1/d3/o_remainder_carry__1_i_4__1[1]
+    SLICE_X27Y7          LUT4 (Prop_lut4_I2_O)        0.303    20.112 r  proc_inst/aluA/div1/d3/comp_out_carry__0_i_7__2/O
+                         net (fo=1, routed)           0.000    20.112    proc_inst/aluA/div1/d4/o_remainder_carry_i_4__2_0[1]
     SLICE_X27Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    18.591 r  proc_inst/aluA/div1/d3/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    18.591    proc_inst/aluA/div1/d3/o_remainder_carry_n_0
-    SLICE_X27Y8          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    18.705 r  proc_inst/aluA/div1/d3/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    18.705    proc_inst/aluA/div1/d3/o_remainder_carry__0_n_0
-    SLICE_X27Y9          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    18.819 r  proc_inst/aluA/div1/d3/o_remainder_carry__1/CO[3]
-                         net (fo=1, routed)           0.000    18.819    proc_inst/aluA/div1/d3/o_remainder_carry__1_n_0
-    SLICE_X27Y10         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    19.153 r  proc_inst/aluA/div1/d3/o_remainder_carry__2/O[1]
-                         net (fo=3, routed)           0.782    19.936    proc_inst/aluA/div1/d3/next_r4[1]
-    SLICE_X28Y6          LUT4 (Prop_lut4_I2_O)        0.303    20.239 r  proc_inst/aluA/div1/d3/comp_out_carry__0_i_5__2/O
-                         net (fo=1, routed)           0.000    20.239    proc_inst/aluA/div1/d4/o_remainder_carry_i_4__2_0[3]
-    SLICE_X28Y6          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    20.640 r  proc_inst/aluA/div1/d4/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.875    21.514    proc_inst/aluA/div1/d3/CO[0]
-    SLICE_X26Y3          LUT3 (Prop_lut3_I1_O)        0.124    21.638 r  proc_inst/aluA/div1/d3/o_remainder_carry_i_3__2/O
-                         net (fo=1, routed)           0.000    21.638    proc_inst/aluA/div1/d4/comp_out_carry_i_4__4[1]
-    SLICE_X26Y3          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533    22.171 r  proc_inst/aluA/div1/d4/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    22.171    proc_inst/aluA/div1/d4/o_remainder_carry_n_0
-    SLICE_X26Y4          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    22.288 r  proc_inst/aluA/div1/d4/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    22.288    proc_inst/aluA/div1/d4/o_remainder_carry__0_n_0
-    SLICE_X26Y5          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    22.527 r  proc_inst/aluA/div1/d4/o_remainder_carry__1/O[2]
-                         net (fo=4, routed)           0.878    23.406    proc_inst/aluA/div1/d4/o_remainder_carry__1_i_4__2[2]
-    SLICE_X29Y7          LUT4 (Prop_lut4_I0_O)        0.301    23.707 r  proc_inst/aluA/div1/d4/comp_out_carry__0_i_7__3/O
-                         net (fo=1, routed)           0.000    23.707    proc_inst/aluA/div1/d5/o_remainder_carry_i_4__3_0[1]
+                                                      0.550    20.662 r  proc_inst/aluA/div1/d4/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.994    21.656    proc_inst/aluA/div1/d3/CO[0]
+    SLICE_X31Y7          LUT3 (Prop_lut3_I1_O)        0.124    21.780 r  proc_inst/aluA/div1/d3/o_remainder_carry_i_3__2/O
+                         net (fo=1, routed)           0.000    21.780    proc_inst/aluA/div1/d4/comp_out_carry_i_4__4[1]
+    SLICE_X31Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    22.330 r  proc_inst/aluA/div1/d4/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    22.330    proc_inst/aluA/div1/d4/o_remainder_carry_n_0
+    SLICE_X31Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    22.444 r  proc_inst/aluA/div1/d4/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    22.444    proc_inst/aluA/div1/d4/o_remainder_carry__0_n_0
+    SLICE_X31Y9          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    22.778 r  proc_inst/aluA/div1/d4/o_remainder_carry__1/O[1]
+                         net (fo=4, routed)           0.587    23.365    proc_inst/aluA/div1/d4/o_remainder_carry__1_i_4__2[1]
+    SLICE_X30Y9          LUT4 (Prop_lut4_I2_O)        0.303    23.668 r  proc_inst/aluA/div1/d4/comp_out_carry__0_i_7__3/O
+                         net (fo=1, routed)           0.000    23.668    proc_inst/aluA/div1/d5/o_remainder_carry_i_4__3_0[1]
+    SLICE_X30Y9          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    24.201 r  proc_inst/aluA/div1/d5/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.841    25.042    proc_inst/aluA/div1/d4/CO[0]
+    SLICE_X29Y7          LUT3 (Prop_lut3_I1_O)        0.124    25.166 r  proc_inst/aluA/div1/d4/o_remainder_carry_i_3__3/O
+                         net (fo=1, routed)           0.000    25.166    proc_inst/aluA/div1/d5/comp_out_carry_i_4__5[1]
     SLICE_X29Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    24.257 r  proc_inst/aluA/div1/d5/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.947    25.204    proc_inst/aluA/div1/d4/CO[0]
-    SLICE_X28Y9          LUT3 (Prop_lut3_I1_O)        0.124    25.328 r  proc_inst/aluA/div1/d4/o_remainder_carry__0_i_3__3/O
-                         net (fo=1, routed)           0.000    25.328    proc_inst/aluA/div1/d5/comp_out_carry_i_2__4_0[1]
-    SLICE_X28Y9          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    25.878 r  proc_inst/aluA/div1/d5/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    25.878    proc_inst/aluA/div1/d5/o_remainder_carry__0_n_0
-    SLICE_X28Y10         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    25.992 r  proc_inst/aluA/div1/d5/o_remainder_carry__1/CO[3]
-                         net (fo=1, routed)           0.000    25.992    proc_inst/aluA/div1/d5/o_remainder_carry__1_n_0
-    SLICE_X28Y11         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    26.231 r  proc_inst/aluA/div1/d5/o_remainder_carry__2/O[2]
-                         net (fo=2, routed)           0.901    27.131    proc_inst/aluA/div1/d5/next_r6[2]
-    SLICE_X30Y8          LUT4 (Prop_lut4_I0_O)        0.302    27.433 r  proc_inst/aluA/div1/d5/comp_out_carry__0_i_5__4/O
-                         net (fo=1, routed)           0.000    27.433    proc_inst/aluA/div1/d6/o_remainder_carry_i_4__4_0[3]
-    SLICE_X30Y8          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.376    27.809 r  proc_inst/aluA/div1/d6/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.855    28.664    proc_inst/aluA/div1/d5/CO[0]
-    SLICE_X31Y5          LUT3 (Prop_lut3_I1_O)        0.124    28.788 r  proc_inst/aluA/div1/d5/o_remainder_carry_i_3__4/O
-                         net (fo=1, routed)           0.000    28.788    proc_inst/aluA/div1/d6/comp_out_carry_i_4__6[1]
-    SLICE_X31Y5          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    29.338 r  proc_inst/aluA/div1/d6/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    29.338    proc_inst/aluA/div1/d6/o_remainder_carry_n_0
-    SLICE_X31Y6          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    29.452 r  proc_inst/aluA/div1/d6/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    29.452    proc_inst/aluA/div1/d6/o_remainder_carry__0_n_0
-    SLICE_X31Y7          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    29.786 r  proc_inst/aluA/div1/d6/o_remainder_carry__1/O[1]
-                         net (fo=4, routed)           0.817    30.603    proc_inst/aluA/div1/d6/o_remainder_carry__1_i_4__4[1]
-    SLICE_X32Y6          LUT4 (Prop_lut4_I2_O)        0.303    30.906 r  proc_inst/aluA/div1/d6/comp_out_carry__0_i_7__5/O
-                         net (fo=1, routed)           0.000    30.906    proc_inst/aluA/div1/d7/o_remainder_carry_i_4__5_0[1]
-    SLICE_X32Y6          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533    31.439 r  proc_inst/aluA/div1/d7/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          1.074    32.513    proc_inst/aluA/div1/d6/CO[0]
-    SLICE_X30Y2          LUT3 (Prop_lut3_I1_O)        0.124    32.637 r  proc_inst/aluA/div1/d6/o_remainder_carry_i_3__5/O
-                         net (fo=1, routed)           0.000    32.637    proc_inst/aluA/div1/d7/comp_out_carry_i_4__7[1]
-    SLICE_X30Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533    33.170 r  proc_inst/aluA/div1/d7/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    33.170    proc_inst/aluA/div1/d7/o_remainder_carry_n_0
-    SLICE_X30Y3          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    33.287 r  proc_inst/aluA/div1/d7/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    33.287    proc_inst/aluA/div1/d7/o_remainder_carry__0_n_0
+                                                      0.550    25.716 r  proc_inst/aluA/div1/d5/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    25.716    proc_inst/aluA/div1/d5/o_remainder_carry_n_0
+    SLICE_X29Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    25.830 r  proc_inst/aluA/div1/d5/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    25.830    proc_inst/aluA/div1/d5/o_remainder_carry__0_n_0
+    SLICE_X29Y9          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    26.069 r  proc_inst/aluA/div1/d5/o_remainder_carry__1/O[2]
+                         net (fo=4, routed)           0.837    26.906    proc_inst/aluA/div1/d5/o_remainder_carry__1_i_4__3[2]
+    SLICE_X26Y9          LUT4 (Prop_lut4_I0_O)        0.302    27.208 r  proc_inst/aluA/div1/d5/comp_out_carry__0_i_7__4/O
+                         net (fo=1, routed)           0.000    27.208    proc_inst/aluA/div1/d6/o_remainder_carry_i_4__4_0[1]
+    SLICE_X26Y9          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    27.741 r  proc_inst/aluA/div1/d6/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.901    28.642    proc_inst/aluA/div1/d5/CO[0]
+    SLICE_X28Y8          LUT3 (Prop_lut3_I1_O)        0.124    28.766 r  proc_inst/aluA/div1/d5/o_remainder_carry_i_3__4/O
+                         net (fo=1, routed)           0.000    28.766    proc_inst/aluA/div1/d6/comp_out_carry_i_4__6[1]
+    SLICE_X28Y8          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    29.316 r  proc_inst/aluA/div1/d6/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    29.316    proc_inst/aluA/div1/d6/o_remainder_carry_n_0
+    SLICE_X28Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    29.430 r  proc_inst/aluA/div1/d6/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    29.430    proc_inst/aluA/div1/d6/o_remainder_carry__0_n_0
+    SLICE_X28Y10         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    29.669 r  proc_inst/aluA/div1/d6/o_remainder_carry__1/O[2]
+                         net (fo=4, routed)           0.946    30.615    proc_inst/aluA/div1/d6/o_remainder_carry__1_i_4__4[2]
+    SLICE_X28Y6          LUT4 (Prop_lut4_I0_O)        0.302    30.917 r  proc_inst/aluA/div1/d6/comp_out_carry__0_i_7__5/O
+                         net (fo=1, routed)           0.000    30.917    proc_inst/aluA/div1/d7/o_remainder_carry_i_4__5_0[1]
+    SLICE_X28Y6          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    31.467 r  proc_inst/aluA/div1/d7/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.868    32.335    proc_inst/aluA/div1/d6/CO[0]
+    SLICE_X30Y3          LUT3 (Prop_lut3_I1_O)        0.124    32.459 r  proc_inst/aluA/div1/d6/o_remainder_carry_i_3__5/O
+                         net (fo=1, routed)           0.000    32.459    proc_inst/aluA/div1/d7/comp_out_carry_i_4__7[1]
+    SLICE_X30Y3          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    32.992 r  proc_inst/aluA/div1/d7/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    32.992    proc_inst/aluA/div1/d7/o_remainder_carry_n_0
     SLICE_X30Y4          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    33.404 r  proc_inst/aluA/div1/d7/o_remainder_carry__1/CO[3]
-                         net (fo=1, routed)           0.000    33.404    proc_inst/aluA/div1/d7/o_remainder_carry__1_n_0
-    SLICE_X30Y5          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    33.643 r  proc_inst/aluA/div1/d7/o_remainder_carry__2/O[2]
-                         net (fo=2, routed)           0.816    34.458    proc_inst/aluA/div1/d7/next_r8[2]
-    SLICE_X31Y4          LUT4 (Prop_lut4_I0_O)        0.301    34.759 r  proc_inst/aluA/div1/d7/comp_out_carry__0_i_5__6/O
-                         net (fo=1, routed)           0.000    34.759    proc_inst/aluA/div1/d8/o_remainder_carry_i_4__6_0[3]
+                                                      0.117    33.109 r  proc_inst/aluA/div1/d7/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    33.109    proc_inst/aluA/div1/d7/o_remainder_carry__0_n_0
+    SLICE_X30Y5          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    33.226 r  proc_inst/aluA/div1/d7/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    33.226    proc_inst/aluA/div1/d7/o_remainder_carry__1_n_0
+    SLICE_X30Y6          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    33.465 r  proc_inst/aluA/div1/d7/o_remainder_carry__2/O[2]
+                         net (fo=2, routed)           0.819    34.284    proc_inst/aluA/div1/d7/next_r8[2]
+    SLICE_X31Y4          LUT4 (Prop_lut4_I0_O)        0.301    34.585 r  proc_inst/aluA/div1/d7/comp_out_carry__0_i_5__6/O
+                         net (fo=1, routed)           0.000    34.585    proc_inst/aluA/div1/d8/o_remainder_carry_i_4__6_0[3]
     SLICE_X31Y4          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    35.160 r  proc_inst/aluA/div1/d8/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.984    36.144    proc_inst/aluA/div1/d7/CO[0]
-    SLICE_X29Y1          LUT3 (Prop_lut3_I1_O)        0.124    36.268 r  proc_inst/aluA/div1/d7/o_remainder_carry_i_3__6/O
-                         net (fo=1, routed)           0.000    36.268    proc_inst/aluA/div1/d8/comp_out_carry_i_4__8[1]
-    SLICE_X29Y1          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    36.818 r  proc_inst/aluA/div1/d8/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    36.818    proc_inst/aluA/div1/d8/o_remainder_carry_n_0
-    SLICE_X29Y2          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    36.932 r  proc_inst/aluA/div1/d8/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    36.932    proc_inst/aluA/div1/d8/o_remainder_carry__0_n_0
+                                                      0.401    34.986 r  proc_inst/aluA/div1/d8/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.836    35.822    proc_inst/aluA/div1/d7/CO[0]
+    SLICE_X29Y2          LUT3 (Prop_lut3_I1_O)        0.124    35.946 r  proc_inst/aluA/div1/d7/o_remainder_carry_i_3__6/O
+                         net (fo=1, routed)           0.000    35.946    proc_inst/aluA/div1/d8/comp_out_carry_i_4__8[1]
+    SLICE_X29Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    36.496 r  proc_inst/aluA/div1/d8/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    36.496    proc_inst/aluA/div1/d8/o_remainder_carry_n_0
     SLICE_X29Y3          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    37.046 r  proc_inst/aluA/div1/d8/o_remainder_carry__1/CO[3]
-                         net (fo=1, routed)           0.000    37.046    proc_inst/aluA/div1/d8/o_remainder_carry__1_n_0
+                                                      0.114    36.610 r  proc_inst/aluA/div1/d8/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    36.610    proc_inst/aluA/div1/d8/o_remainder_carry__0_n_0
     SLICE_X29Y4          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    37.380 r  proc_inst/aluA/div1/d8/o_remainder_carry__2/O[1]
-                         net (fo=3, routed)           0.642    38.022    proc_inst/aluA/div1/d8/next_r9[1]
-    SLICE_X28Y4          LUT4 (Prop_lut4_I2_O)        0.303    38.325 r  proc_inst/aluA/div1/d8/comp_out_carry__0_i_5__7/O
-                         net (fo=1, routed)           0.000    38.325    proc_inst/aluA/div1/d9/o_remainder_carry_i_4__7_0[3]
-    SLICE_X28Y4          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    38.726 r  proc_inst/aluA/div1/d9/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.855    39.581    proc_inst/aluA/div1/d8/CO[0]
-    SLICE_X27Y2          LUT3 (Prop_lut3_I1_O)        0.124    39.705 r  proc_inst/aluA/div1/d8/o_remainder_carry_i_3__7/O
-                         net (fo=1, routed)           0.000    39.705    proc_inst/aluA/div1/d9/comp_out_carry_i_4__9[1]
-    SLICE_X27Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    40.255 r  proc_inst/aluA/div1/d9/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    40.255    proc_inst/aluA/div1/d9/o_remainder_carry_n_0
-    SLICE_X27Y3          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    40.369 r  proc_inst/aluA/div1/d9/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    40.369    proc_inst/aluA/div1/d9/o_remainder_carry__0_n_0
-    SLICE_X27Y4          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    40.608 r  proc_inst/aluA/div1/d9/o_remainder_carry__1/O[2]
-                         net (fo=4, routed)           1.033    41.641    proc_inst/aluA/div1/d9/o_remainder_carry__1_i_4__7[2]
-    SLICE_X24Y5          LUT4 (Prop_lut4_I0_O)        0.302    41.943 r  proc_inst/aluA/div1/d9/comp_out_carry__0_i_7__8/O
-                         net (fo=1, routed)           0.000    41.943    proc_inst/aluA/div1/d10/o_remainder_carry_i_4__8_0[1]
-    SLICE_X24Y5          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    42.493 r  proc_inst/aluA/div1/d10/comp_out_carry__0/CO[3]
-                         net (fo=17, routed)          1.006    43.499    proc_inst/aluA/div1/d9/CO[0]
-    SLICE_X25Y3          LUT3 (Prop_lut3_I1_O)        0.124    43.623 r  proc_inst/aluA/div1/d9/o_remainder_carry__0_i_4__8/O
-                         net (fo=1, routed)           0.000    43.623    proc_inst/aluA/div1/d10/comp_out_carry_i_2__9_0[0]
-    SLICE_X25Y3          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532    44.155 r  proc_inst/aluA/div1/d10/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    44.155    proc_inst/aluA/div1/d10/o_remainder_carry__0_n_0
-    SLICE_X25Y4          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    44.468 r  proc_inst/aluA/div1/d10/o_remainder_carry__1/O[3]
-                         net (fo=4, routed)           0.851    45.320    proc_inst/aluA/div1/d10/o_remainder_carry__1_i_4__8[3]
-    SLICE_X24Y3          LUT4 (Prop_lut4_I2_O)        0.306    45.626 r  proc_inst/aluA/div1/d10/comp_out_carry__0_i_6__9/O
-                         net (fo=1, routed)           0.000    45.626    proc_inst/aluA/div1/d11/o_remainder_carry_i_4__9_0[2]
-    SLICE_X24Y3          CARRY4 (Prop_carry4_S[2]_CO[3])
-                                                      0.398    46.024 r  proc_inst/aluA/div1/d11/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.893    46.916    proc_inst/aluA/div1/d10/o_remainder_carry__2_0[0]
-    SLICE_X23Y3          LUT3 (Prop_lut3_I1_O)        0.124    47.040 r  proc_inst/aluA/div1/d10/o_remainder_carry_i_3__9/O
-                         net (fo=1, routed)           0.000    47.040    proc_inst/aluA/div1/d11/comp_out_carry_i_4__11[1]
-    SLICE_X23Y3          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    47.590 r  proc_inst/aluA/div1/d11/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    47.590    proc_inst/aluA/div1/d11/o_remainder_carry_n_0
-    SLICE_X23Y4          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    47.903 r  proc_inst/aluA/div1/d11/o_remainder_carry__0/O[3]
-                         net (fo=4, routed)           0.901    48.804    proc_inst/aluA/div1/d11/o_remainder_carry__0_i_4__9[3]
-    SLICE_X23Y8          LUT4 (Prop_lut4_I2_O)        0.306    49.110 r  proc_inst/aluA/div1/d11/comp_out_carry__0_i_8__10/O
-                         net (fo=1, routed)           0.000    49.110    proc_inst/aluA/div1/d12/o_remainder_carry_i_4__10_0[0]
-    SLICE_X23Y8          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532    49.642 r  proc_inst/aluA/div1/d12/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          1.001    50.643    proc_inst/aluA/div1/d11/CO[0]
-    SLICE_X21Y4          LUT3 (Prop_lut3_I1_O)        0.124    50.767 r  proc_inst/aluA/div1/d11/o_remainder_carry_i_2__10/O
-                         net (fo=1, routed)           0.000    50.767    proc_inst/aluA/div1/d12/comp_out_carry_i_4__12[2]
-    SLICE_X21Y4          CARRY4 (Prop_carry4_S[2]_CO[3])
-                                                      0.398    51.165 r  proc_inst/aluA/div1/d12/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    51.165    proc_inst/aluA/div1/d12/o_remainder_carry_n_0
-    SLICE_X21Y5          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    51.478 r  proc_inst/aluA/div1/d12/o_remainder_carry__0/O[3]
-                         net (fo=4, routed)           0.828    52.306    proc_inst/aluA/div1/d12/o_remainder_carry__0_i_4__10[3]
-    SLICE_X22Y7          LUT4 (Prop_lut4_I2_O)        0.306    52.612 r  proc_inst/aluA/div1/d12/comp_out_carry__0_i_8__11/O
-                         net (fo=1, routed)           0.000    52.612    proc_inst/aluA/div1/d13/o_remainder_carry_i_4__11_0[0]
-    SLICE_X22Y7          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.513    53.125 r  proc_inst/aluA/div1/d13/comp_out_carry__0/CO[3]
-                         net (fo=17, routed)          1.058    54.184    proc_inst/aluA/div1/d12/CO[0]
-    SLICE_X22Y2          LUT3 (Prop_lut3_I1_O)        0.124    54.308 r  proc_inst/aluA/div1/d12/o_remainder_carry_i_3__11/O
-                         net (fo=1, routed)           0.000    54.308    proc_inst/aluA/div1/d13/comp_out_carry_i_4__13[1]
-    SLICE_X22Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533    54.841 r  proc_inst/aluA/div1/d13/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    54.841    proc_inst/aluA/div1/d13/o_remainder_carry_n_0
-    SLICE_X22Y3          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    54.958 r  proc_inst/aluA/div1/d13/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    54.958    proc_inst/aluA/div1/d13/o_remainder_carry__0_n_0
-    SLICE_X22Y4          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    55.197 r  proc_inst/aluA/div1/d13/o_remainder_carry__1/O[2]
-                         net (fo=4, routed)           0.784    55.981    proc_inst/aluA/div1/d13/o_remainder_carry__1_i_4__11[2]
-    SLICE_X23Y2          LUT4 (Prop_lut4_I0_O)        0.301    56.282 r  proc_inst/aluA/div1/d13/comp_out_carry__0_i_7__12/O
-                         net (fo=1, routed)           0.000    56.282    proc_inst/aluA/div1/d14/o_remainder_carry_i_4__12_0[1]
-    SLICE_X23Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    56.832 r  proc_inst/aluA/div1/d14/comp_out_carry__0/CO[3]
-                         net (fo=16, routed)          0.861    57.692    proc_inst/aluA/div1/d13/CO[0]
-    SLICE_X21Y0          LUT3 (Prop_lut3_I1_O)        0.124    57.816 r  proc_inst/aluA/div1/d13/o_remainder_carry_i_3__12/O
-                         net (fo=1, routed)           0.000    57.816    proc_inst/aluA/div1/d14/comp_out_carry_i_4__14[1]
-    SLICE_X21Y0          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    58.366 r  proc_inst/aluA/div1/d14/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    58.366    proc_inst/aluA/div1/d14/o_remainder_carry_n_0
-    SLICE_X21Y1          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    58.679 r  proc_inst/aluA/div1/d14/o_remainder_carry__0/O[3]
-                         net (fo=4, routed)           0.822    59.501    proc_inst/aluA/div1/d14/o_remainder_carry__0_i_4__12[3]
-    SLICE_X19Y3          LUT4 (Prop_lut4_I2_O)        0.306    59.807 r  proc_inst/aluA/div1/d14/comp_out_carry__0_i_8__13/O
-                         net (fo=1, routed)           0.000    59.807    proc_inst/aluA/div1/d15/o_remainder_carry_i_4__13_0[0]
-    SLICE_X19Y3          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532    60.339 r  proc_inst/aluA/div1/d15/comp_out_carry__0/CO[3]
-                         net (fo=17, routed)          1.017    61.356    proc_inst/aluA/div1/d14/CO[0]
-    SLICE_X20Y0          LUT3 (Prop_lut3_I1_O)        0.124    61.480 r  proc_inst/aluA/div1/d14/o_remainder_carry_i_3__13/O
-                         net (fo=1, routed)           0.000    61.480    proc_inst/aluA/div1/d15/state[0]_i_8__0[1]
-    SLICE_X20Y0          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533    62.013 r  proc_inst/aluA/div1/d15/o_remainder_carry/CO[3]
-                         net (fo=1, routed)           0.000    62.013    proc_inst/aluA/div1/d15/o_remainder_carry_n_0
-    SLICE_X20Y1          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    62.130 r  proc_inst/aluA/div1/d15/o_remainder_carry__0/CO[3]
-                         net (fo=1, routed)           0.000    62.130    proc_inst/aluA/div1/d15/o_remainder_carry__0_n_0
-    SLICE_X20Y2          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    62.247 r  proc_inst/aluA/div1/d15/o_remainder_carry__1/CO[3]
-                         net (fo=1, routed)           0.000    62.247    proc_inst/aluA/div1/d15/o_remainder_carry__1_n_0
-    SLICE_X20Y3          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.323    62.570 f  proc_inst/aluA/div1/d15/o_remainder_carry__2/O[1]
-                         net (fo=2, routed)           0.699    63.269    proc_inst/X_IR_A/next_r16[13]
-    SLICE_X26Y2          LUT6 (Prop_lut6_I1_O)        0.306    63.575 f  proc_inst/X_IR_A/state[30]_i_47/O
-                         net (fo=1, routed)           0.637    64.212    proc_inst/X_IR_A/state[30]_i_47_n_0
-    SLICE_X25Y6          LUT6 (Prop_lut6_I0_O)        0.124    64.336 r  proc_inst/X_IR_A/state[30]_i_38/O
-                         net (fo=1, routed)           0.691    65.027    proc_inst/X_IR_A/state[30]_i_38_n_0
-    SLICE_X25Y12         LUT6 (Prop_lut6_I5_O)        0.124    65.151 f  proc_inst/X_IR_A/state[30]_i_25/O
-                         net (fo=1, routed)           0.684    65.836    proc_inst/X_IR_A/state[30]_i_25_n_0
-    SLICE_X20Y13         LUT6 (Prop_lut6_I3_O)        0.124    65.960 f  proc_inst/X_IR_A/state[30]_i_16/O
-                         net (fo=4, routed)           0.603    66.562    proc_inst/X_IR_A/state[30]_i_16_n_0
-    SLICE_X17Y13         LUT1 (Prop_lut1_I0_O)        0.124    66.686 r  proc_inst/X_IR_A/state[30]_i_31/O
-                         net (fo=1, routed)           0.000    66.686    proc_inst/X_IR_A/state[30]_i_31_n_0
-    SLICE_X17Y13         CARRY4 (Prop_carry4_S[2]_CO[3])
-                                                      0.398    67.084 f  proc_inst/X_IR_A/state_reg[30]_i_17/CO[3]
-                         net (fo=3, routed)           0.786    67.871    proc_inst/X_IR_A/state_reg[15]_0[0]
-    SLICE_X14Y14         LUT6 (Prop_lut6_I2_O)        0.124    67.995 f  proc_inst/X_IR_A/state[0]_i_42/O
-                         net (fo=1, routed)           0.303    68.298    proc_inst/X_IR_A/state[0]_i_42_n_0
-    SLICE_X14Y15         LUT5 (Prop_lut5_I0_O)        0.124    68.422 f  proc_inst/X_IR_A/state[0]_i_23/O
-                         net (fo=2, routed)           0.478    68.900    proc_inst/X_IR_A/nzp_new_bits_A[0]
-    SLICE_X14Y15         LUT4 (Prop_lut4_I0_O)        0.124    69.024 f  proc_inst/X_IR_A/state[30]_i_5/O
-                         net (fo=10, routed)          0.530    69.554    proc_inst/X_IR_A/state[30]_i_5_n_0
-    SLICE_X12Y15         LUT6 (Prop_lut6_I5_O)        0.124    69.678 r  proc_inst/X_IR_A/state[1]_i_8__2/O
-                         net (fo=2, routed)           0.582    70.260    proc_inst/X_IR_A/state[1]_i_8__2_n_0
-    SLICE_X11Y17         LUT6 (Prop_lut6_I4_O)        0.124    70.384 r  proc_inst/X_IR_A/state[1]_i_6__2/O
-                         net (fo=1, routed)           0.807    71.191    proc_inst/X_IR_B/state_reg[1]_16
-    SLICE_X11Y18         LUT6 (Prop_lut6_I3_O)        0.124    71.315 r  proc_inst/X_IR_B/state[1]_i_2__6/O
-                         net (fo=6, routed)           0.470    71.786    proc_inst/X_IR_A/X_br_toc_B
-    SLICE_X11Y18         LUT2 (Prop_lut2_I1_O)        0.124    71.910 r  proc_inst/X_IR_A/state[1]_i_1__15/O
-                         net (fo=76, routed)          0.804    72.714    proc_inst/D_IR_A/p_8_in
-    SLICE_X8Y21          LUT6 (Prop_lut6_I1_O)        0.124    72.838 f  proc_inst/D_IR_A/state[0]_i_3__4/O
-                         net (fo=5, routed)           0.751    73.589    proc_inst/D_IR_B/state_reg[33]_0
-    SLICE_X8Y17          LUT6 (Prop_lut6_I3_O)        0.124    73.713 r  proc_inst/D_IR_B/state[33]_i_1__0/O
-                         net (fo=31, routed)          0.839    74.551    proc_inst/X_IR_B/state_reg[33]_0
-    SLICE_X6Y17          FDRE                                         r  proc_inst/X_IR_B/state_reg[28]/R
+                                                      0.334    36.944 r  proc_inst/aluA/div1/d8/o_remainder_carry__1/O[1]
+                         net (fo=4, routed)           0.663    37.607    proc_inst/aluA/div1/d8/o_remainder_carry__1_i_4__6[1]
+    SLICE_X28Y2          LUT4 (Prop_lut4_I2_O)        0.303    37.910 r  proc_inst/aluA/div1/d8/comp_out_carry__0_i_7__7/O
+                         net (fo=1, routed)           0.000    37.910    proc_inst/aluA/div1/d9/o_remainder_carry_i_4__7_0[1]
+    SLICE_X28Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    38.460 r  proc_inst/aluA/div1/d9/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.847    39.307    proc_inst/aluA/div1/d8/CO[0]
+    SLICE_X27Y1          LUT3 (Prop_lut3_I1_O)        0.124    39.431 r  proc_inst/aluA/div1/d8/o_remainder_carry_i_3__7/O
+                         net (fo=1, routed)           0.000    39.431    proc_inst/aluA/div1/d9/comp_out_carry_i_4__9[1]
+    SLICE_X27Y1          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    39.981 r  proc_inst/aluA/div1/d9/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    39.981    proc_inst/aluA/div1/d9/o_remainder_carry_n_0
+    SLICE_X27Y2          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    40.294 r  proc_inst/aluA/div1/d9/o_remainder_carry__0/O[3]
+                         net (fo=4, routed)           0.766    41.060    proc_inst/aluA/div1/d9/o_remainder_carry__0_i_4__7[3]
+    SLICE_X28Y4          LUT4 (Prop_lut4_I2_O)        0.306    41.366 r  proc_inst/aluA/div1/d9/comp_out_carry__0_i_8__8/O
+                         net (fo=1, routed)           0.000    41.366    proc_inst/aluA/div1/d10/o_remainder_carry_i_4__8_0[0]
+    SLICE_X28Y4          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    41.898 r  proc_inst/aluA/div1/d10/comp_out_carry__0/CO[3]
+                         net (fo=17, routed)          1.172    43.070    proc_inst/aluA/div1/d9/CO[0]
+    SLICE_X32Y2          LUT3 (Prop_lut3_I1_O)        0.124    43.194 r  proc_inst/aluA/div1/d9/o_remainder_carry_i_3__8/O
+                         net (fo=1, routed)           0.000    43.194    proc_inst/aluA/div1/d10/comp_out_carry_i_4__10[1]
+    SLICE_X32Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    43.727 r  proc_inst/aluA/div1/d10/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    43.727    proc_inst/aluA/div1/d10/o_remainder_carry_n_0
+    SLICE_X32Y3          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    43.844 r  proc_inst/aluA/div1/d10/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    43.844    proc_inst/aluA/div1/d10/o_remainder_carry__0_n_0
+    SLICE_X32Y4          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    44.083 r  proc_inst/aluA/div1/d10/o_remainder_carry__1/O[2]
+                         net (fo=4, routed)           0.988    45.071    proc_inst/aluA/div1/d10/o_remainder_carry__1_i_4__8[2]
+    SLICE_X26Y4          LUT4 (Prop_lut4_I0_O)        0.301    45.372 r  proc_inst/aluA/div1/d10/comp_out_carry__0_i_7__9/O
+                         net (fo=1, routed)           0.000    45.372    proc_inst/aluA/div1/d11/o_remainder_carry_i_4__9_0[1]
+    SLICE_X26Y4          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    45.905 r  proc_inst/aluA/div1/d11/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.835    46.740    proc_inst/aluA/div1/d10/o_remainder_carry__2_0[0]
+    SLICE_X25Y2          LUT3 (Prop_lut3_I1_O)        0.124    46.864 r  proc_inst/aluA/div1/d10/o_remainder_carry_i_3__9/O
+                         net (fo=1, routed)           0.000    46.864    proc_inst/aluA/div1/d11/comp_out_carry_i_4__11[1]
+    SLICE_X25Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    47.414 r  proc_inst/aluA/div1/d11/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    47.414    proc_inst/aluA/div1/d11/o_remainder_carry_n_0
+    SLICE_X25Y3          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.528 r  proc_inst/aluA/div1/d11/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    47.528    proc_inst/aluA/div1/d11/o_remainder_carry__0_n_0
+    SLICE_X25Y4          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.642 r  proc_inst/aluA/div1/d11/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    47.642    proc_inst/aluA/div1/d11/o_remainder_carry__1_n_0
+    SLICE_X25Y5          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    47.881 r  proc_inst/aluA/div1/d11/o_remainder_carry__2/O[2]
+                         net (fo=2, routed)           0.781    48.662    proc_inst/aluA/div1/d11/next_r12[2]
+    SLICE_X24Y3          LUT4 (Prop_lut4_I0_O)        0.302    48.964 r  proc_inst/aluA/div1/d11/comp_out_carry__0_i_5__10/O
+                         net (fo=1, routed)           0.000    48.964    proc_inst/aluA/div1/d12/o_remainder_carry_i_4__10_0[3]
+    SLICE_X24Y3          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    49.365 r  proc_inst/aluA/div1/d12/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          1.061    50.426    proc_inst/aluA/div1/d11/CO[0]
+    SLICE_X23Y1          LUT3 (Prop_lut3_I1_O)        0.124    50.550 r  proc_inst/aluA/div1/d11/o_remainder_carry_i_3__10/O
+                         net (fo=1, routed)           0.000    50.550    proc_inst/aluA/div1/d12/comp_out_carry_i_4__12[1]
+    SLICE_X23Y1          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    51.100 r  proc_inst/aluA/div1/d12/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    51.100    proc_inst/aluA/div1/d12/o_remainder_carry_n_0
+    SLICE_X23Y2          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.214 r  proc_inst/aluA/div1/d12/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    51.214    proc_inst/aluA/div1/d12/o_remainder_carry__0_n_0
+    SLICE_X23Y3          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    51.548 r  proc_inst/aluA/div1/d12/o_remainder_carry__1/O[1]
+                         net (fo=4, routed)           0.618    52.166    proc_inst/aluA/div1/d12/o_remainder_carry__1_i_4__10[1]
+    SLICE_X22Y3          LUT4 (Prop_lut4_I2_O)        0.303    52.469 r  proc_inst/aluA/div1/d12/comp_out_carry__0_i_7__11/O
+                         net (fo=1, routed)           0.000    52.469    proc_inst/aluA/div1/d13/o_remainder_carry_i_4__11_0[1]
+    SLICE_X22Y3          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    53.002 r  proc_inst/aluA/div1/d13/comp_out_carry__0/CO[3]
+                         net (fo=17, routed)          0.718    53.720    proc_inst/aluA/div1/d12/CO[0]
+    SLICE_X20Y2          LUT3 (Prop_lut3_I1_O)        0.124    53.844 r  proc_inst/aluA/div1/d12/o_remainder_carry_i_3__11/O
+                         net (fo=1, routed)           0.000    53.844    proc_inst/aluA/div1/d13/comp_out_carry_i_4__13[1]
+    SLICE_X20Y2          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    54.377 r  proc_inst/aluA/div1/d13/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    54.377    proc_inst/aluA/div1/d13/o_remainder_carry_n_0
+    SLICE_X20Y3          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    54.494 r  proc_inst/aluA/div1/d13/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    54.494    proc_inst/aluA/div1/d13/o_remainder_carry__0_n_0
+    SLICE_X20Y4          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    54.611 r  proc_inst/aluA/div1/d13/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    54.611    proc_inst/aluA/div1/d13/o_remainder_carry__1_n_0
+    SLICE_X20Y5          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    54.850 r  proc_inst/aluA/div1/d13/o_remainder_carry__2/O[2]
+                         net (fo=2, routed)           0.804    55.653    proc_inst/aluA/div1/d13/next_r14[2]
+    SLICE_X21Y4          LUT4 (Prop_lut4_I0_O)        0.301    55.954 r  proc_inst/aluA/div1/d13/comp_out_carry__0_i_5__12/O
+                         net (fo=1, routed)           0.000    55.954    proc_inst/aluA/div1/d14/o_remainder_carry_i_4__12_0[3]
+    SLICE_X21Y4          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    56.355 r  proc_inst/aluA/div1/d14/comp_out_carry__0/CO[3]
+                         net (fo=16, routed)          0.880    57.235    proc_inst/aluA/div1/d13/CO[0]
+    SLICE_X19Y3          LUT3 (Prop_lut3_I1_O)        0.124    57.359 r  proc_inst/aluA/div1/d13/o_remainder_carry_i_3__12/O
+                         net (fo=1, routed)           0.000    57.359    proc_inst/aluA/div1/d14/comp_out_carry_i_4__14[1]
+    SLICE_X19Y3          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    57.909 r  proc_inst/aluA/div1/d14/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    57.909    proc_inst/aluA/div1/d14/o_remainder_carry_n_0
+    SLICE_X19Y4          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    58.023 r  proc_inst/aluA/div1/d14/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    58.023    proc_inst/aluA/div1/d14/o_remainder_carry__0_n_0
+    SLICE_X19Y5          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    58.137 r  proc_inst/aluA/div1/d14/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    58.137    proc_inst/aluA/div1/d14/o_remainder_carry__1_n_0
+    SLICE_X19Y6          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    58.376 r  proc_inst/aluA/div1/d14/o_remainder_carry__2/O[2]
+                         net (fo=3, routed)           0.942    59.318    proc_inst/aluA/div1/d14/next_r15[2]
+    SLICE_X19Y2          LUT4 (Prop_lut4_I0_O)        0.302    59.620 r  proc_inst/aluA/div1/d14/comp_out_carry__0_i_5__13/O
+                         net (fo=1, routed)           0.000    59.620    proc_inst/aluA/div1/d15/o_remainder_carry_i_4__13_0[3]
+    SLICE_X19Y2          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    60.021 r  proc_inst/aluA/div1/d15/comp_out_carry__0/CO[3]
+                         net (fo=17, routed)          0.989    61.010    proc_inst/aluA/div1/d14/CO[0]
+    SLICE_X18Y1          LUT3 (Prop_lut3_I1_O)        0.124    61.134 r  proc_inst/aluA/div1/d14/o_remainder_carry_i_3__13/O
+                         net (fo=1, routed)           0.000    61.134    proc_inst/aluA/div1/d15/state[0]_i_8__0[1]
+    SLICE_X18Y1          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    61.667 r  proc_inst/aluA/div1/d15/o_remainder_carry/CO[3]
+                         net (fo=1, routed)           0.000    61.667    proc_inst/aluA/div1/d15/o_remainder_carry_n_0
+    SLICE_X18Y2          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    61.784 r  proc_inst/aluA/div1/d15/o_remainder_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    61.784    proc_inst/aluA/div1/d15/o_remainder_carry__0_n_0
+    SLICE_X18Y3          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    61.901 r  proc_inst/aluA/div1/d15/o_remainder_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    61.901    proc_inst/aluA/div1/d15/o_remainder_carry__1_n_0
+    SLICE_X18Y4          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219    62.120 f  proc_inst/aluA/div1/d15/o_remainder_carry__2/O[0]
+                         net (fo=1, routed)           0.700    62.820    proc_inst/X_IR_A/next_r16[12]
+    SLICE_X21Y2          LUT3 (Prop_lut3_I2_O)        0.295    63.115 r  proc_inst/X_IR_A/state[12]_i_46/O
+                         net (fo=1, routed)           0.436    63.551    proc_inst/X_IR_A/state[12]_i_46_n_0
+    SLICE_X22Y1          LUT6 (Prop_lut6_I0_O)        0.124    63.675 r  proc_inst/X_IR_A/state[12]_i_27/O
+                         net (fo=1, routed)           0.663    64.338    proc_inst/X_IR_A/state[12]_i_27_n_0
+    SLICE_X26Y2          LUT6 (Prop_lut6_I4_O)        0.124    64.462 f  proc_inst/X_IR_A/state[12]_i_12__0/O
+                         net (fo=1, routed)           0.641    65.102    proc_inst/X_IR_A/state[12]_i_12__0_n_0
+    SLICE_X26Y10         LUT6 (Prop_lut6_I5_O)        0.124    65.226 f  proc_inst/X_IR_A/state[12]_i_3/O
+                         net (fo=1, routed)           0.162    65.388    proc_inst/X_IR_A/state[12]_i_3_n_0
+    SLICE_X26Y10         LUT6 (Prop_lut6_I0_O)        0.124    65.512 f  proc_inst/X_IR_A/state[12]_i_2/O
+                         net (fo=3, routed)           0.303    65.815    proc_inst/X_IR_A/alu_out_A[12]
+    SLICE_X27Y12         LUT6 (Prop_lut6_I5_O)        0.124    65.939 f  proc_inst/X_IR_A/state[30]_i_16/O
+                         net (fo=4, routed)           1.012    66.952    proc_inst/X_IR_A/state[30]_i_16_n_0
+    SLICE_X18Y13         LUT1 (Prop_lut1_I0_O)        0.124    67.076 r  proc_inst/X_IR_A/state[30]_i_31/O
+                         net (fo=1, routed)           0.000    67.076    proc_inst/X_IR_A/state[30]_i_31_n_0
+    SLICE_X18Y13         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.380    67.456 r  proc_inst/X_IR_A/state_reg[30]_i_17/CO[3]
+                         net (fo=3, routed)           0.970    68.426    proc_inst/X_IR_A/state_reg[15]_0[0]
+    SLICE_X11Y16         LUT6 (Prop_lut6_I2_O)        0.124    68.550 r  proc_inst/X_IR_A/state[0]_i_42/O
+                         net (fo=1, routed)           0.491    69.040    proc_inst/X_IR_A/state[0]_i_42_n_0
+    SLICE_X10Y17         LUT5 (Prop_lut5_I0_O)        0.124    69.164 r  proc_inst/X_IR_A/state[0]_i_23/O
+                         net (fo=2, routed)           0.476    69.640    proc_inst/X_IR_A/nzp_new_bits_A[0]
+    SLICE_X10Y18         LUT4 (Prop_lut4_I0_O)        0.116    69.756 r  proc_inst/X_IR_A/state[30]_i_5/O
+                         net (fo=10, routed)          0.673    70.430    proc_inst/X_IR_A/state[30]_i_5_n_0
+    SLICE_X9Y17          LUT6 (Prop_lut6_I5_O)        0.328    70.758 r  proc_inst/X_IR_A/state[30]_i_2/O
+                         net (fo=26, routed)          0.712    71.470    proc_inst/X_IR_B/X_br_toc_A
+    SLICE_X9Y17          LUT2 (Prop_lut2_I1_O)        0.152    71.622 f  proc_inst/X_IR_B/state[1]_i_3__5/O
+                         net (fo=1, routed)           0.837    72.459    proc_inst/X_IR_B/state[1]_i_3__5_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I0_O)        0.332    72.791 f  proc_inst/X_IR_B/state[1]_i_2__6/O
+                         net (fo=6, routed)           0.691    73.483    proc_inst/X_IR_A/X_br_toc_B
+    SLICE_X9Y18          LUT2 (Prop_lut2_I1_O)        0.150    73.633 f  proc_inst/X_IR_A/state[1]_i_1__15/O
+                         net (fo=76, routed)          0.768    74.401    proc_inst/D_IR_A/p_8_in
+    SLICE_X6Y20          LUT6 (Prop_lut6_I4_O)        0.326    74.727 r  proc_inst/D_IR_A/state[15]_i_7__2/O
+                         net (fo=81, routed)          1.896    76.623    proc_inst/D_IR_A/DCD_DP
+    SLICE_X28Y13         LUT6 (Prop_lut6_I1_O)        0.124    76.747 r  proc_inst/D_IR_A/state[3]_i_1__7/O
+                         net (fo=1, routed)           0.000    76.747    proc_inst/F_PC/state_reg[3]_0
+    SLICE_X28Y13         FDRE                                         r  proc_inst/F_PC/state_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_processor_design_1_clk_wiz_0_0 rise edge)
-                                                     75.250    75.250 r  
-    Y9                                                0.000    75.250 r  CLOCK_100MHz (IN)
-                         net (fo=0)                   0.000    75.250    mmcm0/CLOCK_100MHz
-    Y9                   IBUF (Prop_ibuf_I_O)         1.420    76.670 r  mmcm0/clkin1_ibufg/O
-                         net (fo=1, routed)           1.162    77.832    mmcm0/clk_in1_design_1_clk_wiz_0_0
+                                                     78.250    78.250 r  
+    Y9                                                0.000    78.250 r  CLOCK_100MHz (IN)
+                         net (fo=0)                   0.000    78.250    mmcm0/CLOCK_100MHz
+    Y9                   IBUF (Prop_ibuf_I_O)         1.420    79.670 r  mmcm0/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    80.832    mmcm0/clk_in1_design_1_clk_wiz_0_0
     MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -7.438    70.394 r  mmcm0/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, routed)           1.691    72.085    mmcm0/clk_processor_design_1_clk_wiz_0_0
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    72.176 r  mmcm0/clkout1_buf/O
-                         net (fo=712, routed)         1.647    73.824    proc_inst/X_IR_B/clk_processor
-    SLICE_X6Y17          FDRE                                         r  proc_inst/X_IR_B/state_reg[28]/C
-                         clock pessimism              0.616    74.439    
-                         clock uncertainty           -0.101    74.338    
-    SLICE_X6Y17          FDRE (Setup_fdre_C_R)       -0.524    73.814    proc_inst/X_IR_B/state_reg[28]
+                                                     -7.438    73.394 r  mmcm0/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.691    75.085    mmcm0/clk_processor_design_1_clk_wiz_0_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    75.176 r  mmcm0/clkout1_buf/O
+                         net (fo=712, routed)         1.563    76.740    proc_inst/F_PC/clk_processor
+    SLICE_X28Y13         FDRE                                         r  proc_inst/F_PC/state_reg[3]/C
+                         clock pessimism              0.577    77.316    
+                         clock uncertainty           -0.102    77.215    
+    SLICE_X28Y13         FDRE (Setup_fdre_C_D)        0.029    77.244    proc_inst/F_PC/state_reg[3]
   -------------------------------------------------------------------
-                         required time                         73.814    
-                         arrival time                         -74.551    
+                         required time                         77.244    
+                         arrival time                         -76.747    
   -------------------------------------------------------------------
-                         slack                                 -0.737    
+                         slack                                  0.497    
 
 
 
@@ -589,20 +605,20 @@ Slack (VIOLATED) :        -0.737ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.131ns  (arrival time - required time)
-  Source:                 proc_inst/W_rO_B/state_reg[15]/C
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@37.625ns period=75.250ns})
-  Destination:            proc_inst/main_regfile/reg_gen[1].reg_instance/state_reg[15]/D
-                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@37.625ns period=75.250ns})
+Slack (MET) :             0.143ns  (arrival time - required time)
+  Source:                 proc_inst/W_rO_A/state_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@39.125ns period=78.250ns})
+  Destination:            proc_inst/main_regfile/reg_gen[2].reg_instance/state_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by clk_processor_design_1_clk_wiz_0_0  {rise@0.000ns fall@39.125ns period=78.250ns})
   Path Group:             clk_processor_design_1_clk_wiz_0_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_processor_design_1_clk_wiz_0_0 rise@0.000ns - clk_processor_design_1_clk_wiz_0_0 rise@0.000ns)
-  Data Path Delay:        0.265ns  (logic 0.186ns (70.321%)  route 0.079ns (29.679%))
+  Data Path Delay:        0.277ns  (logic 0.186ns (67.237%)  route 0.091ns (32.763%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    -0.794ns
-    Source Clock Delay      (SCD):    -0.557ns
-    Clock Pessimism Removal (CPR):    -0.250ns
+    Source Clock Delay      (SCD):    -0.558ns
+    Clock Pessimism Removal (CPR):    -0.249ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -616,14 +632,14 @@ Slack (MET) :             0.131ns  (arrival time - required time)
                                                      -2.421    -1.722 r  mmcm0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           0.518    -1.204    mmcm0/clk_processor_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026    -1.178 r  mmcm0/clkout1_buf/O
-                         net (fo=712, routed)         0.622    -0.557    proc_inst/W_rO_B/clk_processor
-    SLICE_X7Y9           FDRE                                         r  proc_inst/W_rO_B/state_reg[15]/C
+                         net (fo=712, routed)         0.621    -0.558    proc_inst/W_rO_A/clk_processor
+    SLICE_X3Y11          FDRE                                         r  proc_inst/W_rO_A/state_reg[14]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y9           FDRE (Prop_fdre_C_Q)         0.141    -0.416 r  proc_inst/W_rO_B/state_reg[15]/Q
-                         net (fo=9, routed)           0.079    -0.337    proc_inst/W_rIR_B/state_reg[15]_3
-    SLICE_X6Y9           LUT6 (Prop_lut6_I1_O)        0.045    -0.292 r  proc_inst/W_rIR_B/state[15]_i_2__7/O
-                         net (fo=1, routed)           0.000    -0.292    proc_inst/main_regfile/reg_gen[1].reg_instance/reg_gen[1].writeVal[15]
-    SLICE_X6Y9           FDRE                                         r  proc_inst/main_regfile/reg_gen[1].reg_instance/state_reg[15]/D
+    SLICE_X3Y11          FDRE (Prop_fdre_C_Q)         0.141    -0.417 r  proc_inst/W_rO_A/state_reg[14]/Q
+                         net (fo=9, routed)           0.091    -0.326    proc_inst/W_rIR_B/state_reg[14]_2
+    SLICE_X2Y11          LUT6 (Prop_lut6_I5_O)        0.045    -0.281 r  proc_inst/W_rIR_B/state[14]_i_1__0/O
+                         net (fo=1, routed)           0.000    -0.281    proc_inst/main_regfile/reg_gen[2].reg_instance/reg_gen[2].writeVal[14]
+    SLICE_X2Y11          FDRE                                         r  proc_inst/main_regfile/reg_gen[2].reg_instance/state_reg[14]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_processor_design_1_clk_wiz_0_0 rise edge)
@@ -636,15 +652,15 @@ Slack (MET) :             0.131ns  (arrival time - required time)
                                                      -3.204    -2.278 r  mmcm0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           0.564    -1.714    mmcm0/clk_processor_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029    -1.685 r  mmcm0/clkout1_buf/O
-                         net (fo=712, routed)         0.891    -0.794    proc_inst/main_regfile/reg_gen[1].reg_instance/clk_processor
-    SLICE_X6Y9           FDRE                                         r  proc_inst/main_regfile/reg_gen[1].reg_instance/state_reg[15]/C
-                         clock pessimism              0.250    -0.544    
-    SLICE_X6Y9           FDRE (Hold_fdre_C_D)         0.121    -0.423    proc_inst/main_regfile/reg_gen[1].reg_instance/state_reg[15]
+                         net (fo=712, routed)         0.891    -0.794    proc_inst/main_regfile/reg_gen[2].reg_instance/clk_processor
+    SLICE_X2Y11          FDRE                                         r  proc_inst/main_regfile/reg_gen[2].reg_instance/state_reg[14]/C
+                         clock pessimism              0.249    -0.545    
+    SLICE_X2Y11          FDRE (Hold_fdre_C_D)         0.121    -0.424    proc_inst/main_regfile/reg_gen[2].reg_instance/state_reg[14]
   -------------------------------------------------------------------
-                         required time                          0.423    
-                         arrival time                          -0.292    
+                         required time                          0.424    
+                         arrival time                          -0.281    
   -------------------------------------------------------------------
-                         slack                                  0.131    
+                         slack                                  0.143    
 
 
 
@@ -653,15 +669,15 @@ Slack (MET) :             0.131ns  (arrival time - required time)
 Pulse Width Checks
 --------------------------------------------------------------------------------------
 Clock Name:         clk_processor_design_1_clk_wiz_0_0
-Waveform(ns):       { 0.000 37.625 }
-Period(ns):         75.250
+Waveform(ns):       { 0.000 39.125 }
+Period(ns):         78.250
 Sources:            { mmcm0/mmcm_adv_inst/CLKOUT0 }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            3.363         75.250      71.887     RAMB36_X0Y2      memory/memory/IDRAM_reg_0_15/CLKARDCLK
-Max Period        n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       75.250      138.110    MMCME2_ADV_X0Y0  mmcm0/mmcm_adv_inst/CLKOUT0
-Low Pulse Width   Fast    FDCE/C              n/a            0.500         37.625      37.125     SLICE_X14Y13     memory/memory/memory/memory/IDRAM_reg_0_0_cooolgate_en_gate_1_cooolDelFlop/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         37.625      37.125     SLICE_X11Y18     proc_inst/X_IR_B/state_reg[14]/C
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            3.363         78.250      74.887     RAMB36_X0Y2      memory/memory/IDRAM_reg_0_15/CLKARDCLK
+Max Period        n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       78.250      135.110    MMCME2_ADV_X0Y0  mmcm0/mmcm_adv_inst/CLKOUT0
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         39.125      38.625     SLICE_X15Y13     proc_inst/X_PC_A/state_reg[11]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         39.125      38.625     SLICE_X5Y20      proc_inst/X_IR_B/state_reg[14]/C
 
 
 
@@ -683,7 +699,7 @@ Period(ns):         40.000
 Sources:            { mmcm0/mmcm_adv_inst/CLKOUT1 }
 
 Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period  n/a     RAMB18E1/CLKBWRCLK  n/a            2.576         40.000      37.424     RAMB18_X1Y10     memory/memory/VRAM_reg_7/CLKBWRCLK
+Min Period  n/a     RAMB18E1/CLKBWRCLK  n/a            2.576         40.000      37.424     RAMB18_X2Y10     memory/memory/VRAM_reg_7/CLKBWRCLK
 Max Period  n/a     MMCME2_ADV/CLKOUT1  n/a            213.360       40.000      173.360    MMCME2_ADV_X0Y0  mmcm0/mmcm_adv_inst/CLKOUT1
 
 
@@ -692,15 +708,15 @@ Max Period  n/a     MMCME2_ADV/CLKOUT1  n/a            213.360       40.000     
 From Clock:  clk_vga_inv_design_1_clk_wiz_0_0
   To Clock:  clk_vga_inv_design_1_clk_wiz_0_0
 
-Setup :            0  Failing Endpoints,  Worst Slack       35.734ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.185ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack       35.743ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.180ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack       19.020ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             35.734ns  (required time - arrival time)
+Slack (MET) :             35.743ns  (required time - arrival time)
   Source:                 vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[7]/C
                             (rising edge-triggered cell FDRE clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
   Destination:            vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/R
@@ -708,11 +724,11 @@ Slack (MET) :             35.734ns  (required time - arrival time)
   Path Group:             clk_vga_inv_design_1_clk_wiz_0_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            40.000ns  (clk_vga_inv_design_1_clk_wiz_0_0 rise@60.000ns - clk_vga_inv_design_1_clk_wiz_0_0 rise@20.000ns)
-  Data Path Delay:        3.354ns  (logic 0.801ns (23.878%)  route 2.553ns (76.122%))
+  Data Path Delay:        3.341ns  (logic 0.748ns (22.388%)  route 2.593ns (77.612%))
   Logic Levels:           1  (LUT5=1)
-  Clock Path Skew:        -0.089ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.531ns = ( 58.469 - 60.000 ) 
-    Source Clock Delay      (SCD):    -0.967ns = ( 19.033 - 20.000 ) 
+  Clock Path Skew:        -0.098ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.537ns = ( 58.463 - 60.000 ) 
+    Source Clock Delay      (SCD):    -0.964ns = ( 19.036 - 20.000 ) 
     Clock Pessimism Removal (CPR):    0.476ns
   Clock Uncertainty:      0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -731,14 +747,14 @@ Slack (MET) :             35.734ns  (required time - arrival time)
                                                      -7.343    15.432 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           1.855    17.287    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.101    17.388 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          1.645    19.033    vga_cntrl_inst/svga_t_g/clk_vga_inv
-    SLICE_X42Y24         FDRE                                         r  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[7]/C
+                         net (fo=42, routed)          1.648    19.036    vga_cntrl_inst/svga_t_g/clk_vga_inv
+    SLICE_X43Y22         FDRE                                         r  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y24         FDRE (Prop_fdre_C_Q)         0.478    19.511 f  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[7]/Q
-                         net (fo=14, routed)          0.797    20.309    vga_cntrl_inst/svga_t_g/pixel_count[7]
-    SLICE_X43Y24         LUT5 (Prop_lut5_I4_O)        0.323    20.632 r  vga_cntrl_inst/svga_t_g/state[3]_i_1__16/O
-                         net (fo=12, routed)          1.756    22.388    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[0]_0
-    SLICE_X54Y32         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/R
+    SLICE_X43Y22         FDRE (Prop_fdre_C_Q)         0.419    19.455 f  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[7]/Q
+                         net (fo=14, routed)          0.883    20.339    vga_cntrl_inst/svga_t_g/pixel_count[7]
+    SLICE_X43Y23         LUT5 (Prop_lut5_I4_O)        0.329    20.668 r  vga_cntrl_inst/svga_t_g/state[3]_i_1__16/O
+                         net (fo=12, routed)          1.710    22.378    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[0]_0
+    SLICE_X54Y27         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_vga_inv_design_1_clk_wiz_0_0 rise edge)
@@ -751,16 +767,16 @@ Slack (MET) :             35.734ns  (required time - arrival time)
                                                      -7.438    55.144 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           1.691    56.835    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.091    56.926 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          1.542    58.469    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/clk_vga_inv
-    SLICE_X54Y32         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/C
-                         clock pessimism              0.476    58.945    
-                         clock uncertainty           -0.091    58.854    
-    SLICE_X54Y32         FDRE (Setup_fdre_C_R)       -0.732    58.122    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]
+                         net (fo=42, routed)          1.536    58.463    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/clk_vga_inv
+    SLICE_X54Y27         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/C
+                         clock pessimism              0.476    58.939    
+                         clock uncertainty           -0.091    58.848    
+    SLICE_X54Y27         FDRE (Setup_fdre_C_R)       -0.727    58.121    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]
   -------------------------------------------------------------------
-                         required time                         58.122    
-                         arrival time                         -22.388    
+                         required time                         58.121    
+                         arrival time                         -22.378    
   -------------------------------------------------------------------
-                         slack                                 35.734    
+                         slack                                 35.743    
 
 
 
@@ -768,20 +784,20 @@ Slack (MET) :             35.734ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.185ns  (arrival time - required time)
-  Source:                 vga_cntrl_inst/svga_t_g/h_synch_reg/C
+Slack (MET) :             0.180ns  (arrival time - required time)
+  Source:                 vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
-  Destination:            vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2/D
-                            (rising edge-triggered cell SRL16E clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
+  Destination:            vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]/D
+                            (rising edge-triggered cell FDRE clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
   Path Group:             clk_vga_inv_design_1_clk_wiz_0_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_vga_inv_design_1_clk_wiz_0_0 rise@20.000ns - clk_vga_inv_design_1_clk_wiz_0_0 rise@20.000ns)
-  Data Path Delay:        0.318ns  (logic 0.141ns (44.342%)  route 0.177ns (55.658%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.871ns = ( 19.129 - 20.000 ) 
-    Source Clock Delay      (SCD):    -0.632ns = ( 19.368 - 20.000 ) 
-    Clock Pessimism Removal (CPR):    -0.255ns
+  Data Path Delay:        0.285ns  (logic 0.186ns (65.224%)  route 0.099ns (34.776%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.870ns = ( 19.130 - 20.000 ) 
+    Source Clock Delay      (SCD):    -0.629ns = ( 19.371 - 20.000 ) 
+    Clock Pessimism Removal (CPR):    -0.254ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -795,12 +811,14 @@ Slack (MET) :             0.185ns  (arrival time - required time)
                                                      -2.421    18.278 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           0.518    18.796    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026    18.822 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          0.547    19.368    vga_cntrl_inst/svga_t_g/clk_vga_inv
-    SLICE_X43Y25         FDRE                                         r  vga_cntrl_inst/svga_t_g/h_synch_reg/C
+                         net (fo=42, routed)          0.550    19.371    vga_cntrl_inst/svga_t_g/clk_vga_inv
+    SLICE_X44Y21         FDRE                                         r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y25         FDRE (Prop_fdre_C_Q)         0.141    19.509 r  vga_cntrl_inst/svga_t_g/h_synch_reg/Q
-                         net (fo=2, routed)           0.177    19.686    vga_cntrl_inst/svga_t_g/h_synch
-    SLICE_X42Y27         SRL16E                                       r  vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2/D
+    SLICE_X44Y21         FDRE (Prop_fdre_C_Q)         0.141    19.512 r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[1]/Q
+                         net (fo=11, routed)          0.099    19.612    vga_cntrl_inst/svga_t_g/line_count[1]
+    SLICE_X45Y21         LUT6 (Prop_lut6_I3_O)        0.045    19.657 r  vga_cntrl_inst/svga_t_g/LINE_COUNT[5]_i_1/O
+                         net (fo=1, routed)           0.000    19.657    vga_cntrl_inst/svga_t_g/p_0_in__0[5]
+    SLICE_X45Y21         FDRE                                         r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_vga_inv_design_1_clk_wiz_0_0 rise edge)
@@ -813,16 +831,15 @@ Slack (MET) :             0.185ns  (arrival time - required time)
                                                      -3.204    17.722 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           0.564    18.286    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.029    18.315 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          0.814    19.129    vga_cntrl_inst/svga_t_g/clk_vga_inv
-    SLICE_X42Y27         SRL16E                                       r  vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2/CLK
-                         clock pessimism              0.255    19.384    
-    SLICE_X42Y27         SRL16E (Hold_srl16e_CLK_D)
-                                                      0.117    19.501    vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2
+                         net (fo=42, routed)          0.815    19.130    vga_cntrl_inst/svga_t_g/clk_vga_inv
+    SLICE_X45Y21         FDRE                                         r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]/C
+                         clock pessimism              0.254    19.384    
+    SLICE_X45Y21         FDRE (Hold_fdre_C_D)         0.092    19.476    vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]
   -------------------------------------------------------------------
-                         required time                        -19.501    
-                         arrival time                          19.686    
+                         required time                        -19.476    
+                         arrival time                          19.657    
   -------------------------------------------------------------------
-                         slack                                  0.185    
+                         slack                                  0.180    
 
 
 
@@ -838,8 +855,8 @@ Sources:            { mmcm0/mmcm_adv_inst/CLKOUT1B }
 Check Type        Corner  Lib Pin              Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
 Min Period        n/a     BUFG/I               n/a            2.155         40.000      37.845     BUFGCTRL_X0Y1    mmcm0/clkout3_buf/I
 Max Period        n/a     MMCME2_ADV/CLKOUT1B  n/a            213.360       40.000      173.360    MMCME2_ADV_X0Y0  mmcm0/mmcm_adv_inst/CLKOUT1B
-Low Pulse Width   Slow    SRL16E/CLK           n/a            0.980         20.000      19.020     SLICE_X42Y27     vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2/CLK
-High Pulse Width  Slow    SRL16E/CLK           n/a            0.980         20.000      19.020     SLICE_X46Y25     vga_cntrl_inst/svga_t_g/V_SYNCH_DELAY_reg_srl2/CLK
+Low Pulse Width   Fast    SRL16E/CLK           n/a            0.980         20.000      19.020     SLICE_X46Y26     vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2/CLK
+High Pulse Width  Slow    SRL16E/CLK           n/a            0.980         20.000      19.020     SLICE_X46Y26     vga_cntrl_inst/svga_t_g/H_SYNCH_DELAY_reg_srl2/CLK
 
 
 
@@ -870,14 +887,14 @@ Max Period  n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       10.000     
 From Clock:  clk_vga_inv_design_1_clk_wiz_0_0
   To Clock:  clk_vga_design_1_clk_wiz_0_0
 
-Setup :            0  Failing Endpoints,  Worst Slack       14.335ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack       19.768ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack       15.144ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack       19.770ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             14.335ns  (required time - arrival time)
+Slack (MET) :             15.144ns  (required time - arrival time)
   Source:                 vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[6]/C
                             (rising edge-triggered cell FDRE clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
   Destination:            memory/memory/VRAM_reg_1/ADDRBWRADDR[5]
@@ -885,11 +902,11 @@ Slack (MET) :             14.335ns  (required time - arrival time)
   Path Group:             clk_vga_design_1_clk_wiz_0_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            20.000ns  (clk_vga_design_1_clk_wiz_0_0 rise@40.000ns - clk_vga_inv_design_1_clk_wiz_0_0 rise@20.000ns)
-  Data Path Delay:        4.397ns  (logic 0.672ns (15.281%)  route 3.725ns (84.719%))
+  Data Path Delay:        3.586ns  (logic 0.609ns (16.983%)  route 2.977ns (83.017%))
   Logic Levels:           1  (LUT1=1)
-  Clock Path Skew:        -0.287ns (DCD - SCD + CPR)
+  Clock Path Skew:        -0.290ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    -1.542ns = ( 38.458 - 40.000 ) 
-    Source Clock Delay      (SCD):    -0.967ns = ( 19.033 - 20.000 ) 
+    Source Clock Delay      (SCD):    -0.964ns = ( 19.036 - 20.000 ) 
     Clock Pessimism Removal (CPR):    0.288ns
   Clock Uncertainty:      0.211ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -908,13 +925,13 @@ Slack (MET) :             14.335ns  (required time - arrival time)
                                                      -7.343    15.432 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           1.855    17.287    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.101    17.388 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          1.645    19.033    vga_cntrl_inst/svga_t_g/clk_vga_inv
-    SLICE_X42Y24         FDRE                                         r  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[6]/C
+                         net (fo=42, routed)          1.648    19.036    vga_cntrl_inst/svga_t_g/clk_vga_inv
+    SLICE_X43Y22         FDRE                                         r  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[6]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X42Y24         FDRE (Prop_fdre_C_Q)         0.518    19.551 f  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[6]/Q
-                         net (fo=16, routed)          0.864    20.415    vga_cntrl_inst/svga_t_g/pixel_count[6]
-    SLICE_X41Y24         LUT1 (Prop_lut1_I0_O)        0.154    20.569 r  vga_cntrl_inst/svga_t_g/VRAM_reg_0_i_18/O
-                         net (fo=8, routed)           2.862    23.431    memory/memory/vaddr[4]
+    SLICE_X43Y22         FDRE (Prop_fdre_C_Q)         0.456    19.492 f  vga_cntrl_inst/svga_t_g/PIXEL_COUNT_reg[6]/Q
+                         net (fo=16, routed)          0.779    20.272    vga_cntrl_inst/svga_t_g/pixel_count[6]
+    SLICE_X44Y22         LUT1 (Prop_lut1_I0_O)        0.153    20.425 r  vga_cntrl_inst/svga_t_g/VRAM_reg_0_i_18/O
+                         net (fo=8, routed)           2.198    22.622    memory/memory/vaddr[4]
     RAMB36_X2Y2          RAMB36E1                                     r  memory/memory/VRAM_reg_1/ADDRBWRADDR[5]
   -------------------------------------------------------------------    -------------------
 
@@ -936,9 +953,9 @@ Slack (MET) :             14.335ns  (required time - arrival time)
                                                      -0.769    37.766    memory/memory/VRAM_reg_1
   -------------------------------------------------------------------
                          required time                         37.766    
-                         arrival time                         -23.431    
+                         arrival time                         -22.622    
   -------------------------------------------------------------------
-                         slack                                 14.335    
+                         slack                                 15.144    
 
 
 
@@ -946,19 +963,19 @@ Slack (MET) :             14.335ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             19.768ns  (arrival time - required time)
-  Source:                 vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[8]/C
+Slack (MET) :             19.770ns  (arrival time - required time)
+  Source:                 vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
-  Destination:            memory/memory/VRAM_reg_6/ADDRBWRADDR[14]
+  Destination:            memory/memory/VRAM_reg_6/ADDRBWRADDR[11]
                             (rising edge-triggered cell RAMB36E1 clocked by clk_vga_design_1_clk_wiz_0_0  {rise@0.000ns fall@20.000ns period=40.000ns})
   Path Group:             clk_vga_design_1_clk_wiz_0_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            -20.000ns  (clk_vga_design_1_clk_wiz_0_0 rise@0.000ns - clk_vga_inv_design_1_clk_wiz_0_0 rise@20.000ns)
-  Data Path Delay:        0.527ns  (logic 0.141ns (26.740%)  route 0.386ns (73.260%))
+  Data Path Delay:        0.542ns  (logic 0.141ns (26.003%)  route 0.401ns (73.998%))
   Logic Levels:           0  
-  Clock Path Skew:        0.365ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.821ns
-    Source Clock Delay      (SCD):    -0.631ns = ( 19.369 - 20.000 ) 
+  Clock Path Skew:        0.378ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.806ns
+    Source Clock Delay      (SCD):    -0.629ns = ( 19.371 - 20.000 ) 
     Clock Pessimism Removal (CPR):    -0.556ns
   Clock Uncertainty:      0.211ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -977,12 +994,12 @@ Slack (MET) :             19.768ns  (arrival time - required time)
                                                      -2.421    18.278 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           0.518    18.796    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026    18.822 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          0.548    19.369    vga_cntrl_inst/svga_t_g/clk_vga_inv
-    SLICE_X43Y23         FDRE                                         r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[8]/C
+                         net (fo=42, routed)          0.550    19.371    vga_cntrl_inst/svga_t_g/clk_vga_inv
+    SLICE_X45Y21         FDRE                                         r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y23         FDRE (Prop_fdre_C_Q)         0.141    19.510 r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[8]/Q
-                         net (fo=13, routed)          0.386    19.897    memory/memory/vaddr[13]
-    RAMB36_X2Y3          RAMB36E1                                     r  memory/memory/VRAM_reg_6/ADDRBWRADDR[14]
+    SLICE_X45Y21         FDRE (Prop_fdre_C_Q)         0.141    19.512 r  vga_cntrl_inst/svga_t_g/LINE_COUNT_reg[5]/Q
+                         net (fo=14, routed)          0.401    19.914    memory/memory/vaddr[10]
+    RAMB36_X3Y4          RAMB36E1                                     r  memory/memory/VRAM_reg_6/ADDRBWRADDR[11]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_vga_design_1_clk_wiz_0_0 rise edge)
@@ -995,17 +1012,17 @@ Slack (MET) :             19.768ns  (arrival time - required time)
                                                      -3.204    -2.278 r  mmcm0/mmcm_adv_inst/CLKOUT1
                          net (fo=1, routed)           0.564    -1.714    mmcm0/clk_vga_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029    -1.685 r  mmcm0/clkout2_buf/O
-                         net (fo=8, routed)           0.863    -0.821    memory/memory/clk_vga
-    RAMB36_X2Y3          RAMB36E1                                     r  memory/memory/VRAM_reg_6/CLKBWRCLK
-                         clock pessimism              0.556    -0.266    
-                         clock uncertainty            0.211    -0.055    
-    RAMB36_X2Y3          RAMB36E1 (Hold_ramb36e1_CLKBWRCLK_ADDRBWRADDR[14])
-                                                      0.183     0.128    memory/memory/VRAM_reg_6
+                         net (fo=8, routed)           0.878    -0.806    memory/memory/clk_vga
+    RAMB36_X3Y4          RAMB36E1                                     r  memory/memory/VRAM_reg_6/CLKBWRCLK
+                         clock pessimism              0.556    -0.251    
+                         clock uncertainty            0.211    -0.040    
+    RAMB36_X3Y4          RAMB36E1 (Hold_ramb36e1_CLKBWRCLK_ADDRBWRADDR[11])
+                                                      0.183     0.143    memory/memory/VRAM_reg_6
   -------------------------------------------------------------------
-                         required time                         -0.128    
-                         arrival time                          19.897    
+                         required time                         -0.143    
+                         arrival time                          19.914    
   -------------------------------------------------------------------
-                         slack                                 19.768    
+                         slack                                 19.770    
 
 
 
@@ -1015,26 +1032,26 @@ Slack (MET) :             19.768ns  (arrival time - required time)
 From Clock:  clk_vga_design_1_clk_wiz_0_0
   To Clock:  clk_vga_inv_design_1_clk_wiz_0_0
 
-Setup :            0  Failing Endpoints,  Worst Slack       15.430ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack       15.647ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack       20.280ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             15.430ns  (required time - arrival time)
-  Source:                 memory/memory/VRAM_reg_6/CLKBWRCLK
+Slack (MET) :             15.647ns  (required time - arrival time)
+  Source:                 memory/memory/VRAM_reg_2/CLKBWRCLK
                             (rising edge-triggered cell RAMB36E1 clocked by clk_vga_design_1_clk_wiz_0_0  {rise@0.000ns fall@20.000ns period=40.000ns})
-  Destination:            vga_cntrl_inst/v_out_inst/VGA_OUT_RED_reg/state_reg[1]/D
+  Destination:            vga_cntrl_inst/v_out_inst/VGA_OUT_BLUE_reg/state_reg[3]/D
                             (rising edge-triggered cell FDRE clocked by clk_vga_inv_design_1_clk_wiz_0_0  {rise@20.000ns fall@40.000ns period=40.000ns})
   Path Group:             clk_vga_inv_design_1_clk_wiz_0_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            20.000ns  (clk_vga_inv_design_1_clk_wiz_0_0 rise@20.000ns - clk_vga_design_1_clk_wiz_0_0 rise@0.000ns)
-  Data Path Delay:        3.993ns  (logic 2.454ns (61.458%)  route 1.539ns (38.542%))
+  Data Path Delay:        3.692ns  (logic 2.454ns (66.462%)  route 1.238ns (33.538%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.338ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.537ns = ( 18.463 - 20.000 ) 
-    Source Clock Delay      (SCD):    -0.911ns
+  Clock Path Skew:        -0.405ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.540ns = ( 18.460 - 20.000 ) 
+    Source Clock Delay      (SCD):    -0.847ns
     Clock Pessimism Removal (CPR):    0.288ns
   Clock Uncertainty:      0.211ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -1053,13 +1070,13 @@ Slack (MET) :             15.430ns  (required time - arrival time)
                                                      -7.343    -4.568 r  mmcm0/mmcm_adv_inst/CLKOUT1
                          net (fo=1, routed)           1.855    -2.713    mmcm0/clk_vga_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.101    -2.612 r  mmcm0/clkout2_buf/O
-                         net (fo=8, routed)           1.700    -0.911    memory/memory/clk_vga
-    RAMB36_X2Y3          RAMB36E1                                     r  memory/memory/VRAM_reg_6/CLKBWRCLK
+                         net (fo=8, routed)           1.764    -0.847    memory/memory/clk_vga
+    RAMB36_X3Y2          RAMB36E1                                     r  memory/memory/VRAM_reg_2/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
-    RAMB36_X2Y3          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
-                                                      2.454     1.543 r  memory/memory/VRAM_reg_6/DOBDO[0]
-                         net (fo=1, routed)           1.539     3.082    vga_cntrl_inst/v_out_inst/VGA_OUT_RED_reg/vout[1]
-    SLICE_X54Y22         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_RED_reg/state_reg[1]/D
+    RAMB36_X3Y2          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      2.454     1.607 r  memory/memory/VRAM_reg_2/DOBDO[0]
+                         net (fo=1, routed)           1.238     2.845    vga_cntrl_inst/v_out_inst/VGA_OUT_BLUE_reg/vout[3]
+    SLICE_X54Y24         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_BLUE_reg/state_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_vga_inv_design_1_clk_wiz_0_0 rise edge)
@@ -1072,16 +1089,16 @@ Slack (MET) :             15.430ns  (required time - arrival time)
                                                      -7.438    15.144 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           1.691    16.835    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.091    16.926 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          1.536    18.463    vga_cntrl_inst/v_out_inst/VGA_OUT_RED_reg/clk_vga_inv
-    SLICE_X54Y22         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_RED_reg/state_reg[1]/C
-                         clock pessimism              0.288    18.751    
-                         clock uncertainty           -0.211    18.540    
-    SLICE_X54Y22         FDRE (Setup_fdre_C_D)       -0.028    18.512    vga_cntrl_inst/v_out_inst/VGA_OUT_RED_reg/state_reg[1]
+                         net (fo=42, routed)          1.533    18.460    vga_cntrl_inst/v_out_inst/VGA_OUT_BLUE_reg/clk_vga_inv
+    SLICE_X54Y24         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_BLUE_reg/state_reg[3]/C
+                         clock pessimism              0.288    18.748    
+                         clock uncertainty           -0.211    18.537    
+    SLICE_X54Y24         FDRE (Setup_fdre_C_D)       -0.045    18.492    vga_cntrl_inst/v_out_inst/VGA_OUT_BLUE_reg/state_reg[3]
   -------------------------------------------------------------------
-                         required time                         18.512    
-                         arrival time                          -3.082    
+                         required time                         18.492    
+                         arrival time                          -2.845    
   -------------------------------------------------------------------
-                         slack                                 15.430    
+                         slack                                 15.647    
 
 
 
@@ -1100,8 +1117,8 @@ Slack (MET) :             20.280ns  (arrival time - required time)
   Data Path Delay:        0.824ns  (logic 0.585ns (71.000%)  route 0.239ns (29.000%))
   Logic Levels:           0  
   Clock Path Skew:        0.274ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.845ns = ( 19.155 - 20.000 ) 
-    Source Clock Delay      (SCD):    -0.563ns = ( 39.437 - 40.000 ) 
+    Destination Clock Delay (DCD):    -0.850ns = ( 19.150 - 20.000 ) 
+    Source Clock Delay      (SCD):    -0.568ns = ( 39.432 - 40.000 ) 
     Clock Pessimism Removal (CPR):    -0.556ns
   Clock Uncertainty:      0.211ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -1120,13 +1137,13 @@ Slack (MET) :             20.280ns  (arrival time - required time)
                                                      -2.421    38.278 r  mmcm0/mmcm_adv_inst/CLKOUT1
                          net (fo=1, routed)           0.518    38.796    mmcm0/clk_vga_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026    38.822 r  mmcm0/clkout2_buf/O
-                         net (fo=8, routed)           0.615    39.437    memory/memory/clk_vga
-    RAMB36_X3Y6          RAMB36E1                                     r  memory/memory/VRAM_reg_3/CLKBWRCLK
+                         net (fo=8, routed)           0.610    39.432    memory/memory/clk_vga
+    RAMB36_X3Y5          RAMB36E1                                     r  memory/memory/VRAM_reg_3/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
-    RAMB36_X3Y6          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[1])
-                                                      0.585    40.022 r  memory/memory/VRAM_reg_3/DOBDO[1]
-                         net (fo=1, routed)           0.239    40.261    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/vout[1]
-    SLICE_X54Y32         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/D
+    RAMB36_X3Y5          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[1])
+                                                      0.585    40.017 r  memory/memory/VRAM_reg_3/DOBDO[1]
+                         net (fo=1, routed)           0.239    40.256    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/vout[1]
+    SLICE_X54Y27         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_vga_inv_design_1_clk_wiz_0_0 rise edge)
@@ -1139,14 +1156,14 @@ Slack (MET) :             20.280ns  (arrival time - required time)
                                                      -3.204    17.722 r  mmcm0/mmcm_adv_inst/CLKOUT1B
                          net (fo=1, routed)           0.564    18.286    mmcm0/clk_vga_inv_design_1_clk_wiz_0_0
     BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.029    18.315 r  mmcm0/clkout3_buf/O
-                         net (fo=42, routed)          0.840    19.155    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/clk_vga_inv
-    SLICE_X54Y32         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/C
-                         clock pessimism              0.556    19.711    
-                         clock uncertainty            0.211    19.922    
-    SLICE_X54Y32         FDRE (Hold_fdre_C_D)         0.059    19.981    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]
+                         net (fo=42, routed)          0.835    19.150    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/clk_vga_inv
+    SLICE_X54Y27         FDRE                                         r  vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]/C
+                         clock pessimism              0.556    19.706    
+                         clock uncertainty            0.211    19.917    
+    SLICE_X54Y27         FDRE (Hold_fdre_C_D)         0.059    19.976    vga_cntrl_inst/v_out_inst/VGA_OUT_GREEN_reg/state_reg[1]
   -------------------------------------------------------------------
-                         required time                        -19.981    
-                         arrival time                          40.261    
+                         required time                        -19.976    
+                         arrival time                          40.256    
   -------------------------------------------------------------------
                          slack                                 20.280    
 
